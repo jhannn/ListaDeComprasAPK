@@ -1,0 +1,253 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+      <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Compras Digital</title>
+	<!-- BOOTSTRAP STYLES-->
+    <link href="css/bootstrap.css" rel="stylesheet" />
+     <!-- FONTAWESOME STYLES-->
+    <link href="css/font-awesome.css" rel="stylesheet" />
+     <!-- MORRIS CHART STYLES-->
+    <link href="js/morris/morris-0.4.3.min.css" rel="stylesheet" />
+
+        <!-- CUSTOM STYLES-->
+    <link href="css/custom.css" rel="stylesheet" />
+     <!-- GOOGLE FONTS-->
+   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+   
+   <script src="js/listaWS.js"></script>
+   <script src="js/usuarioWS.js"></script>  
+   
+   	<script type="text/javascript">
+		window.onload = function(){
+			verificarLogin("listas");
+			retornarListas();
+		}
+	</script>   
+   
+</head>
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse" style="margin-top: 20px;">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <h2 style="padding:0px 0px 10px 10px;color:#fff;"><a href="principal.html"><img src="img/voltar.png" width="40px"></a></h2> 
+            </div>
+				
+			<div id="dataAtual" style="color: white; padding: 15px; float: right; font-size: 16px;"> </div>
+        </nav>   
+           <!-- /. NAV TOP  -->
+                <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+					<li>
+                        <a href="principal.html"><img src="img/inicio.png" width="40px" style="margin-right: 15px;">Início</a>
+                    </li>
+                    <li>
+                        <a href="estabelecimento.html"><img src="img/estabelecimentoBranco.png" width="40px" style="margin-right: 15px;">Estabelecimentos</a>
+                    </li>
+                     <li>
+                        <a  class="active-menu"  href="listas.html"><img src="img/listaBranco.png" width="40px" style="margin-right: 15px;"> Listas</a>
+                    </li>
+                    <li>
+                        <a  href="produtos.html"><img src="img/produtosBranco.png" width="40px" style="margin-right: 15px;"> Produtos</a>
+                    </li>
+					
+					<li>
+                        <a   href="perfil.html"><img src="img/profileBranco.png" width="40px" style="margin-right: 15px;"> Perfil</a>
+                    </li>	
+                     
+                </ul>
+               
+            </div>
+            
+        </nav>  
+        <!-- /. NAV SIDE  -->
+			<div id="page-wrapper" >
+				<div id="page-inner">
+					<div class="row">
+						<h2 style="color: #000; font-size: 18px; font-weight: bold; padding: 0px 0px 12px 15px;">Listas:</h2>
+						
+						<p id="nomeLista" style="margin-left:15px">
+						</p>
+						
+						<button type="button" class="btn btn-primary" style="float: right;" data-toggle="modal" data-target="#cadastrar_lista">
+							Adicionar lista
+						</button>
+						
+					</div> 					 	
+				</div>
+            </div>           
+    </div>
+             <!-- /. PAGE INNER  -->
+            </div>
+         <!-- /. PAGE WRAPPER  -->
+        </div>
+     <!-- /. WRAPPER  -->
+    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+    <!-- JQUERY SCRIPTS -->
+    <script src="js/jquery-1.10.2.js"></script>
+      <!-- BOOTSTRAP SCRIPTS -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- METISMENU SCRIPTS -->
+    <script src="js/jquery.metisMenu.js"></script>
+     <!-- MORRIS CHART SCRIPTS -->
+     <script src="js/morris/raphael-2.1.0.min.js"></script>
+    <script src="js/morris/morris.js"></script>
+      <!-- CUSTOM SCRIPTS -->
+    <script src="js/custom.js"></script>
+     
+   <script>
+		var data = new Date();
+		var dia = data.getDate();
+		if (dia.toString().length == 1)
+		  dia = "0"+dia;
+		var mes = data.getMonth()+1;
+		if (mes.toString().length == 1)
+		  mes = "0"+mes;
+		var ano = data.getFullYear();  
+		$("#dataAtual").html("Data: "+dia+"/"+mes+"/"+ano); 
+		
+
+   </script>
+   
+   
+   <!-- Modal para inserir produtos a uma lista -->
+   <!-- Modal -->
+	
+   <!-- Final modal inserir produtos a uma lista -->
+   
+   <div class="modal fade" id="cadastrar_prduto_lista" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+			<h4 class="modal-title" id="myModalLabel">Adicionar popduto à lista</h4>
+		  </div>
+		  <div class="modal-body">
+			
+			<form class="form-horizontal" role="form">
+				  <div class="form-group" style="margin-bottom: 0px;">
+					<label for="inputEmail3" class="col-sm-2 control-label">Código de barras:</label>
+					<div class="col-sm-10">
+					  <input class="form-control" type="text" placeholder="Código de barras" id="cod_barra" readonly>
+					  <p style="margin: 0px; padding: 0px;"><a href="#" id="scan"><img src="img/codigo_barras.png" width="30px" style="float: right; position: relative;bottom: 70px;"></a></p>
+					</div>
+				  </div>
+				  <div class="form-group" style="margin-bottom: 20px;">
+					<label for="inputPassword3"  class="col-sm-2 control-label">Formato:</label>
+					<div class="col-sm-10">
+					  <input class="form-control" type="text" placeholder="Foamato" id="formato" readonly>
+					</div>
+				  </div>
+				  
+				  <div class="form-group">
+					<label for="inputPassword3" class="col-sm-2 control-label">Nome do produto:</label>
+					<div class="col-sm-10">
+					  <input type="text" class="form-control" placeholder="Nome do produto">
+					</div>
+				  </div>
+				  
+				  
+			</form>
+			
+		  </div>
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+			<button type="button" class="btn btn-primary">Cadastrar produto</button>
+		  </div>
+		</div>
+	  </div>
+	</div>
+   
+   
+   <!-- Modal para inserir uma nova lista -->
+   <!-- Modal -->
+   <div id="deviceready" class="blink">
+		<p class="event listening"></p>
+		<p class="event received"></p>
+	</div> 
+	<p id="info"></p>
+	<div class="modal fade" id="cadastrar_lista" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Fechar</span></button>
+			<h4 class="modal-title" id="myModalLabel">Adicionar lista</h4>
+		  </div>
+		  <div class="modal-body">
+			
+			<form class="form-horizontal" role="form">
+				  
+				  <div class="form-group" style="margin-bottom: 20px;">
+					<label for="inputPassword3" class="col-sm-2 control-label">Nome da lista:</label>
+					<div class="col-sm-10">
+					  <input class="form-control" type="text" placeholder="Nome da lista" id="nome_lista">
+					</div>
+				  </div>
+				  
+				  
+			</form>
+			
+		  </div>
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+			<button type="button" class="btn btn-primary" onclick="criarLista()">Cadastrar lista</button>
+		  </div>
+		</div>
+	  </div>
+	</div>
+   
+   <!-- Modal final para inserir uma nova lsita -->
+   
+   
+   <!-- Modal para editar lista -->
+	<div class="modal fade" id="editar_lista" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Fechar</span></button>
+			<h4 class="modal-title" id="myModalLabel">Editar lista</h4>
+		  </div>
+		  <div class="modal-body">
+			
+			<form class="form-horizontal" role="form">
+				  
+				  <div class="form-group" style="margin-bottom: 20px;">
+					<label for="inputPassword3" class="col-sm-2 control-label">Novo nome:</label>
+					<div class="col-sm-10">
+					  <input class="form-control" type="text" placeholder="Nome da lista" id="novo_nome_lista">
+					</div>
+				  </div>
+				  
+				  
+			</form>
+			
+		  </div>
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+			<button type="button" class="btn btn-primary" onclick="editarNomeLista()">Editar lista</button>
+		  </div>
+		</div>
+	  </div>
+	</div>
+   <!-- Modal para editar lista final -->
+    <!-- JQUERY SCRIPTS -->
+    <script src="js/jquery-1.10.2.js"></script>
+	 <!-- METISMENU SCRIPTS -->
+    <script src="js/jquery.metisMenu.js"></script>
+	
+	<script type="text/javascript" src="cordova.js"></script>
+	<script type="text/javascript" src="barcodescanner.js"></script>
+	<script type="text/javascript" src="js/index.js"></script> 
+	<script type="text/javascript">
+		app.initialize();
+	</script>
+</body>
+</html>

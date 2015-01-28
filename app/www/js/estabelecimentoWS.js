@@ -1,0 +1,2 @@
+var ID_USUARIO = 1;
+var TOKEN = "124576453875";

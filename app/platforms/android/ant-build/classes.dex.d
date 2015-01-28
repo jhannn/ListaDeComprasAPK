@@ -1,0 +1,20 @@
+C:\Users\Ruann\Desktop\app\platforms\android\ant-build\classes.dex : \
+C:\Users\Ruann\Desktop\app\platforms\android\ant-build\classes\de\appplant\cordova\plugin\localnotification\LocalNotification$1.class \
+C:\Users\Ruann\Desktop\app\platforms\android\ant-build\classes\de\appplant\cordova\plugin\localnotification\LocalNotification$2.class \
+C:\Users\Ruann\Desktop\app\platforms\android\ant-build\classes\de\appplant\cordova\plugin\localnotification\LocalNotification$3.class \
+C:\Users\Ruann\Desktop\app\platforms\android\ant-build\classes\de\appplant\cordova\plugin\localnotification\LocalNotification$4.class \
+C:\Users\Ruann\Desktop\app\platforms\android\ant-build\classes\de\appplant\cordova\plugin\localnotification\LocalNotification$5.class \
+C:\Users\Ruann\Desktop\app\platforms\android\ant-build\classes\de\appplant\cordova\plugin\localnotification\LocalNotification.class \
+C:\Users\Ruann\Desktop\app\platforms\android\ant-build\classes\de\appplant\cordova\plugin\localnotification\Options.class \
+C:\Users\Ruann\Desktop\app\platforms\android\ant-build\classes\de\appplant\cordova\plugin\localnotification\Receiver.class \
+C:\Users\Ruann\Desktop\app\platforms\android\ant-build\classes\de\appplant\cordova\plugin\localnotification\ReceiverActivity.class \
+C:\Users\Ruann\Desktop\app\platforms\android\ant-build\classes\de\appplant\cordova\plugin\localnotification\Restore.class \
+C:\Users\Ruann\Desktop\app\platforms\android\ant-build\classes\io\cordova\hellocordova\BuildConfig.class \
+C:\Users\Ruann\Desktop\app\platforms\android\ant-build\classes\io\cordova\hellocordova\CordovaApp.class \
+C:\Users\Ruann\Desktop\app\platforms\android\ant-build\classes\io\cordova\hellocordova\R$attr.class \
+C:\Users\Ruann\Desktop\app\platforms\android\ant-build\classes\io\cordova\hellocordova\R$drawable.class \
+C:\Users\Ruann\Desktop\app\platforms\android\ant-build\classes\io\cordova\hellocordova\R$string.class \
+C:\Users\Ruann\Desktop\app\platforms\android\ant-build\classes\io\cordova\hellocordova\R$xml.class \
+C:\Users\Ruann\Desktop\app\platforms\android\ant-build\classes\io\cordova\hellocordova\R.class \
+C:\Users\Ruann\Desktop\app\platforms\android\ant-build\classes\org\apache\cordova\device\Device.class \
+C:\Users\Ruann\Desktop\app\platforms\android\ant-build\dexedLibs\classes-5156349e47c5095a2acfce779fbd14fa.jar \
