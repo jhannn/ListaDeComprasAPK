@@ -9,7 +9,7 @@ function fazerLogin(){
     if (email!='' && senha!=''){     
 		$.ajax({
             type: 'POST'
-            , url: "http://localhost:52192/Servidor/Usuario.asmx/fazerLogin"
+            , url: "http://10.18.2.77/Servidor/Usuario.asmx/fazerLogin"
             , contentType: 'application/json; charset=utf-8'
             , dataType: 'json'
             , data: "{email:'"+email+"',senha:'"+senha+"',token:'"+token+"'}"
@@ -46,7 +46,7 @@ function verificarLogin(lugar) {
 		
 	$.ajax({
 		type: 'POST'
-		, url: "http://localhost:52192/Servidor/Usuario.asmx/verificarLogin"
+		, url: "http://10.18.2.77/Servidor/Usuario.asmx/verificarLogin"
 		, contentType: 'application/json; charset=utf-8'
 		, dataType: 'json'
 		, data: "{idUsuario:'"+idUsuario+"',token:'"+token+"'}"
@@ -76,7 +76,7 @@ function logout(){
 	var token= window.localStorage.UsuarioToken;
 	$.ajax({
         type: 'POST'
-        , url: "http://localhost:52192/Servidor/Usuario.asmx/logout"
+        , url: "http://10.18.2.77/Servidor/Usuario.asmx/logout"
         , contentType: 'application/json; charset=utf-8'
         , dataType: 'json'
         , data: "{idUsuario:'"+id+"',token:'"+token+"'}"
@@ -106,7 +106,7 @@ function recuperarSenha(){
 	
 	$.ajax({
         type: 'POST'
-        , url: "http://localhost:52192/Servidor/Usuario.asmx/recuperarSenha"
+        , url: "http://10.18.2.77/Servidor/Usuario.asmx/recuperarSenha"
         , contentType: 'application/json; charset=utf-8'
         , dataType: 'json'
         , data: "{emailUsuario:'"+emailUsuario+"'}"
@@ -152,7 +152,7 @@ function cadastrarUsuario() {
 		if(senha == confirmar){		
 			$.ajax({
                 type: 'POST'
-                , url: "http://localhost:52192/Servidor/Usuario.asmx/cadastrarUsuario"
+                , url: "http://10.18.2.77/Servidor/Usuario.asmx/cadastrarUsuario"
 				, crossDomain:true
                 , contentType: 'application/json; charset=utf-8'
                 , dataType: 'json'
@@ -162,6 +162,7 @@ function cadastrarUsuario() {
 						console.log(retorno);
 					if(retorno.erro != "Erro de Usuário"){
 						alert("Usuario cadastrado com sucesso!");
+						localNotification();
 						window.localStorage.UsuarioNome=nome;
 						window.localStorage.UsuarioEmail=email;
 						window.localStorage.UsuarioToken=token;
@@ -212,7 +213,7 @@ function atualizarSenhaUsuario() {
 		if(novaSenha == confirmar){		
 			$.ajax({
                 type: 'POST'
-                , url: "http://localhost:52192/Servidor/Usuario.asmx/atualizarSenhaUsuario"
+                , url: "http://10.18.2.77/Servidor/Usuario.asmx/atualizarSenhaUsuario"
 				, crossDomain:true
                 , contentType: 'application/json; charset=utf-8'
                 , dataType: 'json'
@@ -248,10 +249,45 @@ function atualizarSenhaUsuario() {
 	}	
 }
 
-function teste(){
-	window.plugin.notification.local.add({
-		id:      1,
-		title:   'Reminder',
-		message: 'Dont forget to buy some flowers.'
-	});
+function localNotification()
+{
+    window.plugin.notification.local.add({
+    id:      1,
+    title:   'Cadastro Realizado!',
+    message: 'Usuário cadastrado com sucesso.',
+    repeat:  'weekly',
+    icon: 'img/logo.png'
+    });
 }
+
+var app = {
+    // Application Constructor
+    initialize: function() {
+        this.bindEvents();
+    },
+    // Bind Event Listeners
+    //
+    // Bind any events that are required on startup. Common events are:
+    // 'load', 'deviceready', 'offline', and 'online'.
+    bindEvents: function() {
+        document.addEventListener('deviceready', this.onDeviceReady, false);
+    },
+    // deviceready Event Handler
+    //
+    // The scope of 'this' is the event. In order to call the 'receivedEvent'
+    // function, we must explicitly call 'app.receivedEvent(...);'
+    onDeviceReady: function() {
+        app.receivedEvent('deviceready');
+    },
+    // Update DOM on a Received Event
+    receivedEvent: function(id) {
+        var parentElement = document.getElementById(id);
+        var listeningElement = parentElement.querySelector('.listening');
+        var receivedElement = parentElement.querySelector('.received');
+
+        listeningElement.setAttribute('style', 'display:none;');
+        receivedElement.setAttribute('style', 'display:block;');
+
+        console.log('Received Event: ' + id);
+    }
+};

@@ -12,7 +12,7 @@ function criarLista(){
     if (nomeLista != ''){ 	
 		$.ajax({
             type: 'POST'
-            , url: "http://localhost:52192/Servidor/ListaDeProdutos.asmx/criarLista"
+            , url: "http://10.18.2.77/Servidor/ListaDeProdutos.asmx/criarLista"
 			, crossDomain:true
             , contentType: 'application/json; charset=utf-8'
             , dataType: 'json'
@@ -45,7 +45,7 @@ function retornarNomeLista(){
 	var idLista = parseInt(window.localStorage.idListaClicada);
     $.ajax({
         type: 'POST'
-        , url: "http://localhost:52192/Servidor/ListaDeProdutos.asmx/retornarLista"
+        , url: "http://10.18.2.77/Servidor/ListaDeProdutos.asmx/retornarLista"
 		, crossDomain:true
         , contentType: 'application/json; charset=utf-8'
         , dataType: 'json'
@@ -64,7 +64,7 @@ function retornarNomeLista(){
 function retornarListas(){	
 	$.ajax({
         type: 'POST'
-        , url: "http://localhost:52192/Servidor/ListaDeProdutos.asmx/listarListas" //chamando a função
+        , url: "http://10.18.2.77/Servidor/ListaDeProdutos.asmx/listarListas" //chamando a função
 		, crossDomain:true
         , contentType: 'application/json; charset=utf-8'
         , dataType: 'json'						//tipos de dados de retorno
@@ -115,7 +115,7 @@ function adicionarProdutoALista(){
     if (nomeDoProduto.trim() != ''){
 		$.ajax({
             type: 'POST'
-            , url: "http://localhost:52192/Servidor/ListaDeProdutos.asmx/cadastrarProduto"
+            , url: "http://10.18.2.77/Servidor/ListaDeProdutos.asmx/cadastrarProduto"
 			, crossDomain:true
             , contentType: 'application/json; charset=utf-8'
             , dataType: 'json'
@@ -152,7 +152,7 @@ function retornarProdutosDaListas(){
 	window.localStorage.idListaClicada= idLista;
 	$.ajax({
         type: 'POST'
-        , url: "http://localhost:52192/Servidor/ListaDeProdutos.asmx/listarProdutosDaLista"
+        , url: "http://10.18.2.77/Servidor/ListaDeProdutos.asmx/listarProdutosDaLista"
 		, crossDomain:true
         , contentType: 'application/json; charset=utf-8'
         , dataType: 'json'
@@ -198,7 +198,7 @@ function editarNomeLista(){
 	var token = TOKEN;
     $.ajax({
         type: 'POST'
-        , url: "http://localhost:52192/Servidor/ListaDeProdutos.asmx/editarNomeLista"
+        , url: "http://10.18.2.77/Servidor/ListaDeProdutos.asmx/editarNomeLista"
 		, crossDomain:true
         , contentType: 'application/json; charset=utf-8'
         , dataType: 'json'
@@ -229,7 +229,7 @@ function excluirLista(id) {
    
    $.ajax({
         type: 'POST'
-        , url: "http://localhost:52192/Servidor/ListaDeProdutos.asmx/removerLista"
+        , url: "http://10.18.2.77/Servidor/ListaDeProdutos.asmx/removerLista"
 		, crossDomain:true
         , contentType: 'application/json; charset=utf-8'
         , dataType: 'json'
@@ -254,3 +254,35 @@ function excluirLista(id) {
 function listaClicadaEditar(id) {
 	window.localStorage.idEditarLista = id;
 }
+
+var app = {
+    // Application Constructor
+    initialize: function() {
+        this.bindEvents();
+    },
+    // Bind Event Listeners
+    //
+    // Bind any events that are required on startup. Common events are:
+    // 'load', 'deviceready', 'offline', and 'online'.
+    bindEvents: function() {
+        document.addEventListener('deviceready', this.onDeviceReady, false);
+    },
+    // deviceready Event Handler
+    //
+    // The scope of 'this' is the event. In order to call the 'receivedEvent'
+    // function, we must explicitly call 'app.receivedEvent(...);'
+    onDeviceReady: function() {
+        app.receivedEvent('deviceready');
+    },
+    // Update DOM on a Received Event
+    receivedEvent: function(id) {
+        var parentElement = document.getElementById(id);
+        var listeningElement = parentElement.querySelector('.listening');
+        var receivedElement = parentElement.querySelector('.received');
+
+        listeningElement.setAttribute('style', 'display:none;');
+        receivedElement.setAttribute('style', 'display:block;');
+
+        console.log('Received Event: ' + id);
+    }
+};
