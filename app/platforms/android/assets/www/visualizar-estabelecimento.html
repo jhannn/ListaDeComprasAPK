@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
       <meta charset="utf-8" />
@@ -15,16 +15,20 @@
     <link href="css/custom.css" rel="stylesheet" />
      <!-- GOOGLE FONTS-->
    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+   
+    <script src="js/usuarioWS.js"></script>
+	<script src="js/estabelecimentoWS.js"></script>
 	
-	<script type="text/javascript">
+   	<script type="text/javascript">
 		window.onload = function(){
-			verificarLogin("principal");
-		}
-	</script>     
+			verificarLogin("estabelecimento");
+			visualizarEstabelecimento();	
+		}		
+	</script>   
    
 </head>
 <body>
-   <div id="wrapper">
+    <div id="wrapper">
         <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse" style="margin-top: 20px;">
@@ -33,29 +37,28 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <h2 style="padding:0px 0px 10px 10px;color:#fff;">Página inicial</h2> 
+                <h2 style="padding:0px 0px 10px 10px;color:#fff;"><a href="estabelecimento.html"><img src="img/voltar.png" width="40px"></a></h2> 
             </div>
-  <div id="dataAtual" style="color: white;
-padding: 15px;
-float: right;
-font-size: 16px;"> </div>
+				
+			<div id="dataAtual" style="color: white; padding: 15px; float: right; font-size: 16px;"> </div>
         </nav>   
            <!-- /. NAV TOP  -->
                 <nav class="navbar-default navbar-side" role="navigation">
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
 					<li>
-                        <a class="active-menu"  href="principal.html"><img src="img/inicio.png" width="40px" style="margin-right: 15px;">Início</a>
+                        <a href="principal.html"><img src="img/inicio.png" width="40px" style="margin-right: 15px;">Início</a>
                     </li>
                     <li>
                         <a href="estabelecimento.html"><img src="img/estabelecimentoBranco.png" width="40px" style="margin-right: 15px;">Estabelecimentos</a>
                     </li>
                      <li>
-                        <a  href="listas.html"><img src="img/listaBranco.png" width="40px" style="margin-right: 15px;"> Listas</a>
+                        <a  class="active-menu"  href="listas.html"><img src="img/listaBranco.png" width="40px" style="margin-right: 15px;"> Listas</a>
                     </li>
                     <li>
                         <a  href="produtos.html"><img src="img/produtosBranco.png" width="40px" style="margin-right: 15px;"> Produtos</a>
                     </li>
+					
 					<li>
                         <a   href="perfil.html"><img src="img/profileBranco.png" width="40px" style="margin-right: 15px;"> Perfil</a>
                     </li>	
@@ -68,62 +71,20 @@ font-size: 16px;"> </div>
         <!-- /. NAV SIDE  -->
 			<div id="page-wrapper" >
 				<div id="page-inner">
-					<div style="text-align: center;padding: 20px ">
-						<img src="img/logo.png" width="100px">
-					</div>            
-					 <!-- /. ROW  -->
-					  <hr />
-				<div class="row">
-					<div class="col-md-3 col-sm-6 col-xs-6">           
-						<div class="panel panel-back noti-box">
-							<div>
-								<a href="estabelecimento.html"><img src="img/estabelecimento.png" width="60px"></a>
-							</div>
-							
-								<p class="main-text">Estabelecimentos</p>
-								<p class="text-muted">Supermercados cadastrados</p>
-							
-						 </div>
-					 </div>
-					 
-					 <div class="col-md-3 col-sm-6 col-xs-6">           
-						<div class="panel panel-back noti-box">
-							<div>
-								<a href="listas.html"><img src="img/lista.png" width="60px"></a>
-							</div>
-								<p class="main-text">Listas</p>
-								<p class="text-muted">Suas lista(s) de compras</p>
-						 </div>
-					 </div>
-					 
-					 <div class="col-md-3 col-sm-6 col-xs-6">           
-						<div class="panel panel-back noti-box">
-							<div>
-								<a href="produtos.html"><img src="img/produtos.png" width="60px"></a>
-							</div>
-								<p class="main-text">Produtos</p>
-								<p class="text-muted">Produtos cadastrados</p>
-						 </div>
-					 </div>
-					 
-					 <div class="col-md-3 col-sm-6 col-xs-6">           
-						<div class="panel panel-back noti-box">
-							<div>
-								<a href="perfil.html"><img src="img/profile.png" width="60px"></a>
-							</div>
-								<p class="main-text">Perfil</p>
-								<p class="text-muted">Dados pessoais</p>
-						 </div>
-					 </div>
-					 <button type="button" class="btn btn-primary" style="width: 100%;border: none; background: #ff9900;" onclick="logout()">SAIR</button>
-					 
-				</div>
-					 
+					<div class="row">
+						<h2 id="tituloEstabelecimento" style="color: #000; font-size: 18px; font-weight: bold; padding: 0px 0px 12px 15px;"></h2>
+						<h3 style="color: #000; font-size: 18px; padding: 0px 0px 12px 15px;">Bairro:</h3>
+						<p id="bairro" style="padding: 0px 0px 12px 15px;"></p>
+						<h3 style="color: #000; font-size: 18px; padding: 0px 0px 12px 15px;">Cidade:</h3>
+						<p id="cidade" style="padding: 0px 0px 12px 15px;"></p>
+						<h3 style="color: #000; font-size: 18px; padding: 0px 0px 12px 15px;">Unidade:</h3>
+						<p id="numero" style="padding: 0px 0px 12px 15px;"></p>
 						
-			</div>
-                    
-                      
-        </div>           
+						<p id="nomeLista" style="margin-left:15px">
+						</p>
+					</div> 					 	
+				</div>
+            </div>           
     </div>
              <!-- /. PAGE INNER  -->
             </div>
@@ -142,13 +103,10 @@ font-size: 16px;"> </div>
     <script src="js/morris/morris.js"></script>
       <!-- CUSTOM SCRIPTS -->
     <script src="js/custom.js"></script>
-
-     <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/usuarioWS.js"></script>
-    <script type="text/javascript">
-    app.initialize();
-    </script>
-     
+	
+	<script src="js/usuarioWS.js"></script>
+	<script src="js/estabelecimentoWS.js"></script>
+   
    <script>
 		var data = new Date();
 		var dia = data.getDate();
@@ -159,10 +117,15 @@ font-size: 16px;"> </div>
 		  mes = "0"+mes;
 		var ano = data.getFullYear();  
 		$("#dataAtual").html("Data: "+dia+"/"+mes+"/"+ano); 
-		
-
-   </script>
-
+   </script>   
    
+   <!-- Modal final para inserir uma nova lsita -->
+	<script type="text/javascript" src="js/index.js"></script> 
+	<script type="text/javascript">
+		app.initialize();
+	</script>
+	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
 </body>
 </html>

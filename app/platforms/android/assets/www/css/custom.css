@@ -12,6 +12,7 @@
 /*==============================================
     GENERAL  STYLES    
     =============================================*/
+
 body {
     font-family: 'Open Sans', sans-serif;
 }
@@ -140,8 +141,44 @@ color: #555555;
 white-space: nowrap;
 text-decoration: none;
 }	
-	
 
+
+/*==============================================
+   AJUSTES EXIBIR LISTA   
+    =============================================*/	
+.panel-default > .panel-heading {
+background-color: #E7E6E6;
+}	
+
+.panel.panel-default {
+margin-left: 15px;
+margin-top: 30px;
+}
+	
+.ajustes-lista
+{
+	font-size: 20px;
+	color: #ffb503;
+	position: absolute;
+	float: right;
+	margin: -48px;
+	margin-left: 32px;
+}
+
+p#detalhes
+{
+	font-size: 14px;
+	line-height: 25px;
+	padding-top: 10px;
+}
+
+img.pesquisar-imagem
+{
+	float: right;
+	width: 40px;
+	margin-top: -45px;
+}	
+		
 /*==============================================
    DASHBOARD STYLES    
     =============================================*/
@@ -281,7 +318,7 @@ color: #8d8888;
 
 
 .user-image {
-    margin: 25px auto;
+ margin: 25px auto;
 -webkit-border-radius: 10px;
 -moz-border-radius: 10px;
 border-radius: 10px;
@@ -454,5 +491,10 @@ line-height: 1.428571429;
 }
    
 }
+
+
+
+	
+	
 
 

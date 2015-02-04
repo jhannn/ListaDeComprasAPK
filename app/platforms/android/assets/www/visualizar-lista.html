@@ -36,7 +36,7 @@
    
 </head>
 <body>
-    <div id="wrapper">
+      <div id="wrapper">
         <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse" style="margin-top: 20px;">
@@ -45,7 +45,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <h2 style="padding:0px 0px 10px 10px;color:#fff;"><a href="listas.html"><img src="img/voltar.png" width="40px"></a></h2> 
+                <h2 style="padding:0px 0px 10px 10px;color:#fff;"><a href="listas.html"><img src="assets/img/voltar.png" width="40px"></a></h2> 
             </div>
 				
 			<div id="dataAtual" style="color: white; padding: 15px; float: right; font-size: 16px;"> </div>
@@ -55,20 +55,20 @@
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
 					<li>
-                        <a href="principal.html"><img src="img/inicio.png" width="40px" style="margin-right: 15px;">Início</a>
+                        <a href="principal.html"><img src="assets/img/inicio.png" width="40px" style="margin-right: 15px;">Início</a>
                     </li>
                     <li>
-                        <a href="estabelecimento.html"><img src="img/estabelecimentoBranco.png" width="40px" style="margin-right: 15px;">Estabelecimentos</a>
+                        <a href="estabelecimento.html"><img src="assets/img/estabelecimentoBranco.png" width="40px" style="margin-right: 15px;">Estabelecimentos</a>
                     </li>
                      <li>
-                        <a  class="active-menu"  href="listas.html"><img src="img/listaBranco.png" width="40px" style="margin-right: 15px;"> Listas</a>
+                        <a  class="active-menu"  href="listas.html"><img src="assets/img/listaBranco.png" width="40px" style="margin-right: 15px;"> Listas</a>
                     </li>
                     <li>
-                        <a  href="produtos.html"><img src="img/produtosBranco.png" width="40px" style="margin-right: 15px;"> Produtos</a>
+                        <a  href="produtos.html"><img src="assets/img/produtosBranco.png" width="40px" style="margin-right: 15px;"> Produtos</a>
                     </li>
 					
 					<li>
-                        <a   href="perfil.html"><img src="img/profileBranco.png" width="40px" style="margin-right: 15px;"> Perfil</a>
+                        <a   href="perfil.html"><img src="assets/img/profileBranco.png" width="40px" style="margin-right: 15px;"> Perfil</a>
                     </li>	
                      
                 </ul>
@@ -83,8 +83,8 @@
 						<h2 id="tituloLista"></h2>	
 						<h2 id="nomeDaLista" style="color: #000; font-size: 18px; font-weight: bold; padding: 0px 0px 12px 15px;"></h2>
 						
-						<p id="nomeLista" style="margin-left:15px">
-						</p>
+						
+						<p id="nomeLista" style="margin-left:15px"></p>
 
 						<button type="button" class="btn btn-primary" style="float: right;" data-toggle="modal" data-target="#cadastrar_prduto_lista" onclick="javascript:adicionarProdutoALista();">
 							Cadastrar produto à lista
@@ -103,24 +103,20 @@
      <!-- /. WRAPPER  -->
     <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
     <!-- JQUERY SCRIPTS -->
-    <script src="js/jquery-1.10.2.js"></script>
+    <script src="assets/js/jquery-1.10.2.js"></script>
       <!-- BOOTSTRAP SCRIPTS -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
     <!-- METISMENU SCRIPTS -->
-    <script src="js/jquery.metisMenu.js"></script>
+    <script src="assets/js/jquery.metisMenu.js"></script>
      <!-- MORRIS CHART SCRIPTS -->
-     <script src="js/morris/raphael-2.1.0.min.js"></script>
-    <script src="js/morris/morris.js"></script>
+     <script src="assets/js/morris/raphael-2.1.0.min.js"></script>
+    <script src="assets/js/morris/morris.js"></script>
       <!-- CUSTOM SCRIPTS -->
-    <script src="js/custom.js"></script>
+    <script src="assets/js/custom.js"></script>
 	
-	<script type="text/javascript" src="cordova.js"></script>
-	<script type="text/javascript" src="cordova_plugins.js"></script>
-	<script type="text/javascript" src="barcodescanner.js"></script>
-    <script type="text/javascript" src="js/usuarioWS.js"></script>
-    <script type="text/javascript" src="js/listaWS.js"></script>
-    <script type="text/javascript" src="js/produtoWS.js"></script>
-	<script type="text/javascript" src="js/index.js"></script> 
+	<script src="assets/js/usuarioWS.js"></script>
+	<script src="assets/js/listaWS.js"></script>
+	<script src="assets/js/produtoWS.js"></script>
    
    	<script type="text/javascript">
 		window.onload = function(){
@@ -165,7 +161,7 @@
 					<label for="inputEmail3" class="col-sm-2 control-label">Código de barras:</label>
 					<div class="col-sm-10">
 					  <input class="form-control" type="text" placeholder="Código de barras" id="cod_barra" name="cod_barra" value='' readonly />
-					  <p style="margin: 0px; padding: 0px;"><a href="#" id="scan"><img src="img/codigo_barras.png" width="30px" style="float: right; position: relative;bottom: 70px;"></a></p>
+					  <p style="margin: 0px; padding: 0px;"><a href="#" id="scan"><img src="assets/img/codigo_barras.png" width="30px" style="float: right; position: relative;bottom: 70px;"></a></p>
 					</div>
 				  </div>
 				  
