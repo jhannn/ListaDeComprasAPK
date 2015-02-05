@@ -255,8 +255,7 @@ function localNotification()
     id:      1,
     title:   'Cadastro Realizado!',
     message: 'Usuário cadastrado com sucesso.',
-    repeat:  'weekly',
-    icon: 'img/logo.png'
+    repeat:  'weekly'
     });
 }
 
