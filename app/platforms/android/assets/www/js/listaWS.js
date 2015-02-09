@@ -10,7 +10,7 @@ function criarLista(){
     if (nomeLista != ''){ 	
 		$.ajax({
             type: 'POST'
-            , url: "http://10.18.3.35/Servidor/ListaDeProdutos.asmx/criarLista"
+            , url: "http://192.168.56.1/Servidor/ListaDeProdutos.asmx/criarLista"
 			, crossDomain:true
             , contentType: 'application/json; charset=utf-8'
             , dataType: 'json'
@@ -43,7 +43,7 @@ function retornarNomeLista(){
 	var idLista = parseInt(window.localStorage.idListaClicada);
     $.ajax({
         type: 'POST'
-        , url: "http://10.18.3.35/Servidor/ListaDeProdutos.asmx/retornarLista"
+        , url: "http://192.168.56.1/Servidor/ListaDeProdutos.asmx/retornarLista"
 		, crossDomain:true
         , contentType: 'application/json; charset=utf-8'
         , dataType: 'json'
@@ -62,7 +62,7 @@ function retornarNomeLista(){
 function retornarListas(){	
 	$.ajax({
         type: 'POST'
-        , url: "http://10.18.3.35/Servidor/ListaDeProdutos.asmx/listarListas" //chamando a função
+        , url: "http://192.168.56.1/Servidor/ListaDeProdutos.asmx/listarListas" //chamando a função
 		, crossDomain:true
         , contentType: 'application/json; charset=utf-8'
         , dataType: 'json'						//tipos de dados de retorno
@@ -112,7 +112,7 @@ function adicionarProdutoALista(){
     if (nomeDoProduto.trim() != ''){
 		$.ajax({
             type: 'POST'
-            , url: "http://10.18.3.35/Servidor/ListaDeProdutos.asmx/cadastrarProduto"
+            , url: "http://192.168.56.1/Servidor/ListaDeProdutos.asmx/cadastrarProduto"
 			, crossDomain:true
             , contentType: 'application/json; charset=utf-8'
             , dataType: 'json'
@@ -149,7 +149,7 @@ function retornarProdutosDaListas(){
 	window.localStorage.idListaClicada= idLista;
 	$.ajax({
         type: 'POST'
-        , url: "http://10.18.3.35/Servidor/ListaDeProdutos.asmx/retornarLista"
+        , url: "http://192.168.56.1/Servidor/ListaDeProdutos.asmx/retornarLista"
 		, crossDomain:true
         , contentType: 'application/json; charset=utf-8'
         , dataType: 'json'
@@ -195,7 +195,7 @@ function editarNomeLista(){
 	var token = TOKEN;
     $.ajax({
         type: 'POST'
-        , url: "http://10.18.3.35/Servidor/ListaDeProdutos.asmx/editarNomeLista"
+        , url: "http://192.168.56.1/Servidor/ListaDeProdutos.asmx/editarNomeLista"
 		, crossDomain:true
         , contentType: 'application/json; charset=utf-8'
         , dataType: 'json'
@@ -226,7 +226,7 @@ function excluirLista(id) {
    
    $.ajax({
         type: 'POST'
-        , url: "http://10.18.3.35/Servidor/ListaDeProdutos.asmx/removerLista"
+        , url: "http://192.168.56.1/Servidor/ListaDeProdutos.asmx/removerLista"
 		, crossDomain:true
         , contentType: 'application/json; charset=utf-8'
         , dataType: 'json'

@@ -16,13 +16,10 @@
      <!-- GOOGLE FONTS-->
    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
    
-  	<script type="text/javascript" src="cordova.js"></script>
-  	<script type="text/javascript" src="cordova_plugins.js"></script>
-  	<script type="text/javascript" src="barcodescanner.js"></script>
-    <script type="text/javascript" src="js/usuarioWS.js"></script>
-    <script type="text/javascript" src="js/listaWS.js"></script>
-    <script type="text/javascript" src="js/produtoWS.js"></script>
-	<script type="text/javascript" src="js/index.js"></script> 
+    <script src="js/usuarioWS.js"></script>
+	<script src="js/listaWS.js"></script>
+	<script src="js/produtoWS.js"></script>  
+	<script src="js/estabelecimentoWS.js"></script>  
    
    	<script type="text/javascript">
 		window.onload = function(){
@@ -36,7 +33,7 @@
    
 </head>
 <body>
-      <div id="wrapper">
+    <div id="wrapper">
         <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse" style="margin-top: 20px;">
@@ -85,6 +82,10 @@
 						
 						
 						<p id="nomeLista" style="margin-left:15px"></p>
+						
+						<button type="button" class="btn btn-primary" style="float: right;" data-toggle="modal" data-target="#exibir_estabelecimento" onclick="retornarEstabelecimentosMaisBaratos()">
+							Buscar ofertas
+						</button>
 
 						<button type="button" class="btn btn-primary" style="float: right;" data-toggle="modal" data-target="#cadastrar_prduto_lista" onclick="javascript:adicionarProdutoALista();">
 							Cadastrar produto à lista
@@ -142,10 +143,30 @@
    </script>
    
    
-   <!-- Modal para inserir produtos a uma lista -->
-   <!-- Modal -->
+   <!-- Modal listar estabelecimento -->
+     <div class="modal fade" id="exibir_estabelecimento" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+			<h4 class="modal-title" id="myModalLabel">Estabelecimentos</h4>
+		  </div>
+		  <div class="modal-body">
+		  
+		  <h2 class="estabelecimento-produtos-baratos">Estabelecimento</h1>
+		  <h2 class="oferta">Oferta</h2>
+		  <h2 class="preco">Preço</h2>
+		  
+		  <p id="referenciaEstab"><p>
+
+		  </div>
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+		  </div>
+		</div>
+	  </div>
+	</div> <!-- fim modal -->
 	
-   <!-- Final modal inserir produtos a uma lista -->
    
    <div class="modal fade" id="cadastrar_prduto_lista" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	  <div class="modal-dialog">
@@ -203,20 +224,16 @@
    
    
    <!-- Modal final para inserir uma nova lsita -->
-
-	<script type="text/javascript" src="cordova.js"></script>
-	<script type="text/javascript" src="cordova_plugins.js"></script>
-	<script type="text/javascript" src="barcodescanner.js"></script>
-    <script type="text/javascript" src="js/usuarioWS.js"></script>
-    <script type="text/javascript" src="js/listaWS.js"></script>
-    <script type="text/javascript" src="js/produtoWS.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
 	<script type="text/javascript" src="js/index.js"></script> 
 	<script type="text/javascript">
 		app.initialize();
 	</script>
+	<script src="js/usuarioWS.js"></script>
+	<script src="js/listaWS.js"></script>
+	<script src="js/produtoWS.js"></script>
 	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
-
 </body>
 </html>

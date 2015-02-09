@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-      <meta charset="utf-8" />
+      <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Compras Digital</title>
 	<!-- BOOTSTRAP STYLES-->
@@ -15,7 +15,9 @@
     <link href="css/custom.css" rel="stylesheet" />
      <!-- GOOGLE FONTS-->
    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-  
+    <script src="js/listaWS.js"></script> 
+	<script src="js/usuarioWS.js"></script>  
+	<script src="js/produtoWS.js"></script>  
 	<script type="text/javascript">
 		window.onload = function(){
 			verificarLogin("produtos");
@@ -28,37 +30,37 @@
     <div id="wrapper">
         <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse" style="margin-top: 20px;">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse" style="margin-top: 20px;">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <h2 style="padding:0px 0px 10px 10px;color:#fff;"><a href="principal.html"><img src="assets/img/voltar.png" width="40px"></a></h2> 
+                <h2 style="padding:0px 0px 10px 10px;color:#fff;"><a href="principal.html"><img src="img/voltar.png" width="40px"></a></h2> 
             </div>
-        
-      <div id="dataAtual" style="color: white; padding: 15px; float: right; font-size: 16px;"> </div>
+				
+			<div id="dataAtual" style="color: white; padding: 15px; float: right; font-size: 16px;"> </div>
         </nav>   
            <!-- /. NAV TOP  -->
                 <nav class="navbar-default navbar-side" role="navigation">
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
-          <li>
-                        <a href="principal.html"><img src="assets/img/inicio.png" width="40px" style="margin-right: 15px;">Início</a>
+					<li>
+                        <a href="principal.html"><img src="img/inicio.png" width="40px" style="margin-right: 15px;">Início</a>
                     </li>
                     <li>
-                        <a href="estabelecimento.html"><img src="assets/img/estabelecimentoBranco.png" width="40px" style="margin-right: 15px;">Estabelecimentos</a>
+                        <a href="estabelecimento.html"><img src="img/estabelecimentoBranco.png" width="40px" style="margin-right: 15px;">Estabelecimentos</a>
                     </li>
                      <li>
-                        <a  class="active-menu"  href="listas.html"><img src="assets/img/listaBranco.png" width="40px" style="margin-right: 15px;"> Listas</a>
+                        <a  class="active-menu"  href="listas.html"><img src="img/listaBranco.png" width="40px" style="margin-right: 15px;"> Listas</a>
                     </li>
                     <li>
-                        <a  href="produtos.html"><img src="assets/img/produtosBranco.png" width="40px" style="margin-right: 15px;"> Produtos</a>
+                        <a  href="produtos.html"><img src="img/produtosBranco.png" width="40px" style="margin-right: 15px;"> Produtos</a>
                     </li>
-          
-          <li>
-                        <a   href="perfil.html"><img src="assets/img/profileBranco.png" width="40px" style="margin-right: 15px;"> Perfil</a>
-                    </li> 
+					
+					<li>
+                        <a   href="perfil.html"><img src="img/profileBranco.png" width="40px" style="margin-right: 15px;"> Perfil</a>
+                    </li>	
                      
                 </ul>
                
@@ -66,74 +68,76 @@
             
         </nav>  
         <!-- /. NAV SIDE  -->
-    <div id="page-wrapper" >
-      <div id="page-inner">           
-        <div class="row">
-          <h2 style="color: #000; font-size: 18px; font-weight: bold; padding: 0px 0px 12px 15px;"> Pesquisar produto:</h2>
-            
-          <img src="assets/img/lupa.png" class="pesquisar-imagem" data-toggle="modal" data-target="#pesquisar_produto">
-          <p id="referencia"></p>
-          
-        </div>                
-      </div>             
+		<div id="page-wrapper" >
+			<div id="page-inner">					  
+				<div class="row">
+					<h2 style="color: #000; font-size: 18px; font-weight: bold; padding: 0px 0px 12px 15px;"> Pesquisar produto:</h2>
+					  
+					<img src="img/lupa.png" class="pesquisar-imagem" data-toggle="modal" data-target="#pesquisar_produto">
+					<p id="referencia"></p>
+					
+				</div>		 					 	
+			</div>             
         </div>           
     </div>
  
    <!-- Modal para pesquisar produto -->
-  <div class="modal fade" id="pesquisar_produto" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-      <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Fechar</span></button>
-      <h4 class="modal-title" id="myModalLabel">Pesquisar produto</h4>
-      </div>
-      <div class="modal-body">
-      
-      <form class="form-horizontal" role="form">
-          
-        <div class="form-group" style="margin-bottom: 20px;">
-          <label for="inputPassword3" class="col-sm-2 control-label">Nome produto:</label>
-            <div class="col-sm-10">
-              <input class="form-control" type="text" placeholder="Nome do produto" id="nomeDoProduto" onkeyup="autoComplete()">
-            </div>
-        </div>
-          
-          <div class="form-group" style="margin-bottom: 20px;">
-          <label for="inputPassword3" class="col-sm-2 control-label">Marca produto:</label>
-          <div class="col-sm-10">
-            <input class="form-control" type="text" placeholder="marca do produto" id="marcaProduto" onkeyup="autoCompleteMarca()">
-          </div>
-          </div>
-          
-          <div class="form-group" style="margin-bottom: 20px;">
-          <label for="inputPassword3" class="col-sm-2 control-label">Embalagem produto:</label>
-          <div class="col-sm-10">
-             <select name="embalagem" class="form-control">
-              <option value="0">Todas</option>
-              <option value="1">Unidade</option>
-              <option value="2">Caixa</option>
-              <option value="3">Garrafa</option>
-              <option value="4">Lata</option>
-              <option value="5">Barra</option>
-              <option value="6">Peso</option>
-            </select>
-          </div>
-          </div>
-          
-          
-          
-      </form>
-      
-      </div>
-      <div class="modal-footer">
-      <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-      <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="pesquisarProduto()">Pesquisar</button>
-      </div>
-    </div>
-    </div>
-  </div>
+	<div class="modal fade" id="pesquisar_produto" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Fechar</span></button>
+			<h4 class="modal-title" id="myModalLabel">Pesquisar produto</h4>
+		  </div>
+		  <div class="modal-body">
+			
+			<form class="form-horizontal" role="form">
+				  
+				<div class="form-group" style="margin-bottom: 20px;">
+					<label for="inputPassword3" class="col-sm-2 control-label">Nome produto:</label>
+						<div class="col-sm-10">
+						  <input class="form-control" type="text" placeholder="Nome do produto" id="nomeDoProduto" onkeyup="autoComplete()">
+						</div>
+				</div>
+				  
+				  <div class="form-group" style="margin-bottom: 20px;">
+					<label for="inputPassword3" class="col-sm-2 control-label">Marca produto:</label>
+					<div class="col-sm-10">
+					  <input class="form-control" type="text" placeholder="marca do produto" id="marcaProduto" onkeyup="autoCompleteMarca()">
+					</div>
+				  </div>
+				  
+				  <div class="form-group" style="margin-bottom: 20px;">
+					<label for="inputPassword3" class="col-sm-2 control-label">Embalagem produto:</label>
+					<div class="col-sm-10">
+						 <select name="embalagem" class="form-control">
+						  <option value="0">Todas</option>
+						  <option value="1">Outra</option>
+						  <option value="2">Unidade</option>
+						  <option value="7">Barra</option>
+						  <option value="4">Caixa</option>
+						  <option value="5">Garrafa</option>
+						  <option value="6">Lata</option>
+						  <option value="3">Pacote</option>
+						  <option value="8">Peso</option>
+						</select>
+					</div>
+				  </div>
+				  
+					
+					
+			</form>
+			
+		  </div>
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+			<button type="button" class="btn btn-primary" data-dismiss="modal" onclick="pesquisarProduto()">Pesquisar</button>
+		  </div>
+		</div>
+	  </div>
+	</div>
    <!-- Modal final -->
-  
+	
              <!-- /. PAGE INNER  -->
             </div>
          <!-- /. PAGE WRAPPER  -->
@@ -151,14 +155,10 @@
     <script src="js/morris/morris.js"></script>
       <!-- CUSTOM SCRIPTS -->
     <script src="js/custom.js"></script>
-
-    <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/listaWS.js"></script>
-    <script type="text/javascript" src="js/usuarioWS.js"></script>
-    <script type="text/javascript" src="js/produtoWS.js"></script>
-    <script type="text/javascript">
-    app.initialize();
-    </script>
+	
+	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
      
    <script>
 		var data = new Date();
@@ -173,6 +173,12 @@
 		
 
    </script>
+
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript">
+    app.initialize();
+    </script>
    
 </body>
 </html>

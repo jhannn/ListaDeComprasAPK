@@ -22,10 +22,10 @@
 			verificarLogin("estabelecimento");
 			listarEstabelecimento();
 		}
-	</script>     
+	</script>      
 </head>
 <body>
-     <div id="wrapper">
+    <div id="wrapper">
         <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
                 <img src="img/lupa.png" width="40px" style="position: absolute; right: 75px; top: 19px;">
@@ -184,6 +184,8 @@
         </div>
     </div>
     <!-- Modal para editar lista final -->
+
+
      <!-- /. WRAPPER  -->
     <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
     <!-- JQUERY SCRIPTS -->
@@ -197,10 +199,6 @@
     <script src="js/morris/morris.js"></script>
       <!-- CUSTOM SCRIPTS -->
     <script src="js/custom.js"></script>
-
-    <script type="text/javascript">
-    app.initialize();
-    </script>
      
    <script>
 		var data = new Date();
@@ -215,6 +213,12 @@
 		
 
    </script>
+
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript">
+    app.initialize();
+    </script>
    
 </body>
 </html>

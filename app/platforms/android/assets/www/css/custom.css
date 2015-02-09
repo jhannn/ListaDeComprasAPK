@@ -17,6 +17,17 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
+#map-canvas{
+	height:100%;
+	width:100%;
+	padding: 0;
+	position: absolute !important;
+	top: 40px;
+	right: 0px;
+	bottom: 0px !important;
+	left: 0px !important;
+}
+
 .iconRemove {
 	background: url("../img/remove.png") no-repeat;
 	width: 28px;
@@ -25,7 +36,13 @@ body {
 	background-size: 27px;
 	position: relative;
 	cursor:pointer;
-	/* left: 0px; */
+}
+
+.icone-mapa{
+width: 40px;
+height: 40px;
+float: right;
+margin-top: -85px;
 }
 
 .iconEdit {
@@ -37,7 +54,6 @@ body {
 	float: right;
 	background-size: 27px;
 	position: relative;
-	/* left: 0px; */
 }
 
 .text-box {
@@ -148,11 +164,58 @@ text-decoration: none;
     =============================================*/	
 .panel-default > .panel-heading {
 background-color: #E7E6E6;
+box-shadow: 0px 1px 4px rgb(127, 125, 125);
 }	
 
 .panel.panel-default {
 margin-left: 15px;
 margin-top: 30px;
+}
+
+h2.estabelecimento-produtos-baratos {
+font-size: 20px;
+padding-left: 15px;
+color:orange;
+}
+
+p#referenciaEstab {
+margin-top: -53px;
+}
+
+h2.preco {
+color: orange;
+font-size: 20px;
+float: right;
+margin-right: -165px;
+margin-top: -28px;
+}
+
+h2.oferta {
+color: orange;
+font-size: 20px;
+float: right;
+margin-top: -29px;
+margin-right: 120px;
+}
+
+.ajustes-oferta
+{
+font-size: 18px;
+color: blue;
+font-weight: bold;
+float: right;
+margin-top: -16px;
+margin-right: 120px;
+}
+
+.ajustes-valor
+{
+font-size: 18px;
+color: rgb(255, 94, 0);
+font-weight: bold;
+float: right;
+margin-right: -142px;
+margin-top: -16px;
 }
 	
 .ajustes-lista
@@ -163,6 +226,21 @@ margin-top: 30px;
 	float: right;
 	margin: -48px;
 	margin-left: 32px;
+}
+
+.modal-fechado
+{
+height: 0px;
+overflow: hidden;
+transition:height 2s;  
+box-shadow: 0px 1px 5px rgb(138, 136, 136);
+}
+
+.modal-aberto {
+overflow: hidden;
+height: 150px;
+transition: height 2s;
+box-shadow: 0px 1px 5px rgb(138, 136, 136);
 }
 
 p#detalhes
