@@ -1,0 +1,684 @@
+
+/*=============================================================
+    Authour URI: www.binarycart.com
+    License: Commons Attribution 3.0
+
+    http://creativecommons.org/licenses/by/3.0/
+
+    100% To use For Personal And Commercial Use.
+    IN EXCHANGE JUST GIVE US CREDITS AND TELL YOUR FRIENDS ABOUT US
+   
+    ========================================================  */
+/*==============================================
+    GENERAL  STYLES    
+    =============================================*/
+
+body {
+    font-family: 'Open Sans', sans-serif;
+	background-image: url("../img/fundo.png");
+}
+
+#map-canvas{
+	height:100%;
+	width:100%;
+	padding: 0;
+	position: absolute !important;
+	top: 40px;
+	right: 0px;
+	bottom: 0px !important;
+	left: 0px !important;
+}
+
+.iconRemove {
+	background: url("../img/remove.png") no-repeat;
+	width: 28px;
+	height: 30px;
+	float: right;
+	background-size: 27px;
+	position: relative;
+	cursor:pointer;
+	bottom: 3px;
+}
+
+.icone-remove-produto {
+	background: url("../img/remove.png") no-repeat;
+	width: 28px;
+	height: 30px;
+	float: right;
+	background-size: 27px;
+	position: relative;
+	cursor:pointer;
+	bottom: 5px;
+}
+
+.icone-mapa{
+	width: 42px;
+	height: 32px;
+	float: right;
+	margin-top: -6px;
+	margin-right: 10px;
+}
+
+.icone-quant{
+margin: -18px 0px 0px 100px;
+color:rgb(19, 22, 244);
+}
+
+.iconEdit {
+	cursor: pointer;
+	background: url("../img/edit.png") no-repeat;
+	width: 28px;
+	height: 30px;
+	bottom: 2px;
+	float: right;
+	background-size: 27px;
+	position: relative;
+}
+
+.icone-editar-produto{
+	cursor: pointer;
+	background: url("../img/edit.png") no-repeat;
+	width: 28px;
+	height: 30px;
+	right: 10px;
+	bottom: 5px;
+	float: right;
+	background-size: 27px;
+	position: relative;
+}
+
+.text-box {
+	float: left;
+}
+
+.divLista {
+	float: left;
+	padding-right: 20px;
+}
+
+ #wrapper {
+    width: 100%;
+    background:#F3F3F3;
+}
+
+#page-wrapper {
+    padding: 15px 15px;
+    background:rgb(0, 180, 255);
+   
+}
+#page-inner {
+    width:100%;
+    margin:10px 20px 10px 0px;
+    background-image: url("../img/fundo.png");   
+    padding:10px;
+	height: 100%;
+}
+
+.text-center {
+    text-align:center;
+}
+.no-boder {
+    border:1px solid #f3f3f3;
+}
+h2 {
+    color: #f00;
+}
+h4 {
+    padding-top:10px;
+}
+.square-btn-adjust {
+    border: 0px solid transparent; 
+   -webkit-border-radius: 0px;
+-moz-border-radius: 0px;
+border-radius: 0px;
+
+}
+p {
+font-size: 14px;
+line-height: 15px;
+padding-top: 15px;
+}
+
+#tituloLista
+{
+	color: orange;
+	margin-left: 15px;
+}
+
+/*==============================================
+	AUTO COMPLETE
+	===========================================*/
+
+
+.ui-autocomplete {
+position: fixed;
+top: 100%;
+left: 0;
+z-index: 1051 !important;
+float: left;
+display: none;
+min-width: 160px;
+width: 160px;
+padding: 4px 0;
+margin: 2px 0 0 0;
+list-style: none;
+background-color: #ffffff;
+border-color: #ccc;
+border-color: rgba(0, 0, 0, 0.2);
+border-style: solid;
+border-width: 1px;
+-webkit-border-radius: 2px;
+-moz-border-radius: 2px;
+border-radius: 2px;
+-webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+-moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+-webkit-background-clip: padding-box;
+-moz-background-clip: padding;
+background-clip: padding-box;
+}
+ 
+ .ui-menu-item > a.ui-corner-all {
+display: block;
+padding: 3px 15px;
+clear: both;
+font-weight: normal;
+line-height: 18px;
+color: #555555;
+white-space: nowrap;
+text-decoration: none;
+}	
+
+
+/*==============================================
+   AJUSTES EXIBIR LISTA   
+    =============================================*/	
+.panel-default > .panel-heading {
+background-color: #E7E6E6;
+box-shadow: 0px 1px 4px rgb(127, 125, 125);
+border-radius: 10px;
+}	
+
+p.conteudo-estab {
+margin-left: 17px;
+font-size: 17px;
+color: orange;
+margin-top: -5px;
+}
+
+.titulos{
+color: #428bca;
+text-decoration: none;
+font-size:25px;
+}
+a.titulos{
+color: #428bca;
+text-decoration: none;
+font-size:25px;	
+font-weight: bold;
+}
+
+.panel.panel-default {
+margin-left: 15px;
+margin-top: 30px;
+border-radius: 10px;
+}
+
+h2.estabelecimento-produtos-baratos {
+font-size: 20px;
+color:orange;
+}
+
+p#referenciaEstab {
+margin-top: -53px;
+}
+
+h2.preco {
+color: orange;
+font-size: 20px;
+float: right;
+margin-right: -123px;
+margin-top: -28px;
+}
+
+h2.oferta {
+color: orange;
+font-size: 20px;
+float: right;
+margin-top: -29px;
+margin-right: 75px;
+}
+
+.ajustes-oferta
+{
+font-size: 18px;
+color: blue;
+font-weight: bold;
+float: right;
+margin-top: -16px;
+margin-right: 75px;
+}
+
+.ajustes-valor
+{
+font-size: 18px;
+color: rgb(255, 94, 0);
+font-weight: bold;
+float: right;
+margin-right: -112px;
+margin-top: -16px;
+}
+	
+.ajustes-lista
+{
+font-size: 20px;
+color: #ffb503;
+position: absolute;
+float: right;
+margin: -32px;
+margin-left: 15px;
+}
+
+.modal-fechado
+{
+height: 0px;
+overflow: hidden;
+transition:height 2s;  
+box-shadow: 0px 1px 5px rgb(138, 136, 136);
+}
+
+.modal-aberto {
+overflow: hidden;
+height: 110px;
+transition: height 2s;
+box-shadow: 0px 1px 5px rgb(138, 136, 136);
+}
+
+p#detalhes
+{
+	font-size: 14px;
+	line-height: 25px;
+	padding-top: 10px;
+}
+
+img.pesquisar-imagem
+{
+	float: right;
+	width: 40px;
+	margin-top: -45px;
+}	
+		
+/*==============================================
+   DASHBOARD STYLES    
+    =============================================*/
+.panel-back {
+    background-color:#F8F8F8;
+
+}
+
+.noti-box {
+padding: 10px;
+text-align: center;
+height: 195px;
+}
+
+    .noti-box .icon-box {
+display: block;
+float: left;
+margin: 0 15px 10px 0;
+width: 70px;
+height: 70px;
+line-height: 75px;
+vertical-align: middle;
+text-align: center;
+font-size: 40px;
+}
+.text-box p{
+    margin: 0 0 3px;
+}
+.main-text {
+    font-size: 15x;
+    font-weight:600;
+}
+.set-icon {
+    -webkit-border-radius: 50px;
+-moz-border-radius: 50px;
+border-radius: 50px;
+
+}
+    .bg-color-green {
+background-color: #00CE6F;
+color: #fff;
+}
+ .bg-color-blue {
+background-color: #A95DF0;
+color: #fff;
+}
+  .bg-color-red {
+background-color: #DB0630;
+color: #fff;
+}
+  .bg-color-brown {
+background-color: #B94A00;
+color: #fff;
+}
+
+
+ .icon-box-right {
+display: block;
+float: right;
+margin: 0 15px 10px 0;
+width: 70px;
+height: 70px;
+line-height: 75px;
+vertical-align: middle;
+text-align: center;
+font-size: 40px;
+}
+
+ .main-temp-back {
+background: #8702A8;
+color: #FFFFFF;
+font-size: 16px;
+font-weight: 300;
+text-align: center;
+}
+ .main-temp-back .text-temp {
+font-size: 40px;
+}
+.back-dash {
+    padding:20px;
+    font-size:20px;
+    font-weight:500;
+      -webkit-border-radius: 0px;
+-moz-border-radius: 0px;
+border-radius: 0px;
+background-color:#2EA7EB;
+color:#fff;
+}
+    .back-dash p {
+        padding-top:16px;
+        font-size:13px;
+        color:#fff;
+        line-height:25px;
+        text-align:justify;
+    }
+    .back-footer-green {
+    background-color: #009B50;
+    border-top: 0px solid #fff;
+}
+     .back-footer-red {
+    background-color: #AF0000;
+    border-top: 0px solid #fff;
+}
+     .color-bottom-txt {
+   color: #000;
+font-size: 16px;
+line-height: 30px;
+}
+     /*CHAT PANEL*/
+ .chat-panel .panel-body {
+height: 450px;
+overflow-y: scroll;
+}
+ .chat-box {
+margin: 0;
+padding: 0;
+list-style: none;
+}
+ .chat-box li {
+margin-bottom: 15px;
+padding-bottom: 5px;
+border-bottom: 1px dotted #808080;
+}
+ .chat-box li.left .chat-body {
+margin-left: 90px;
+}
+ .chat-box li .chat-body p {
+margin: 0;
+color: #8d8888;
+}
+.chat-img>img {
+    margin-left:20px;
+}
+
+/*==============================================
+    MENU STYLES    
+    =============================================*/
+
+
+.user-image {
+ margin: 25px auto;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+max-height:170px;
+max-width:170px;
+}
+
+.navbar-cls-top .navbar-brand {
+	color: #fff;
+	background: #FFb503;
+	width: 260px;
+	text-align: center;
+	height: 60px;
+	font-size: 30px;
+	font-weight: 700;
+}
+.active-menu {
+    background-color:blue!important;
+}
+
+.arrow {
+    float: right;
+}
+
+.fa.arrow:before {
+    content: "\f104";
+}
+
+.active > a > .fa.arrow:before {
+    content: "\f107";
+}
+
+
+.nav-second-level li,
+.nav-third-level li {
+    border-bottom: none !important;
+}
+
+.nav-second-level li a {
+    padding-left: 37px;
+}
+
+.nav-third-level li a {
+    padding-left: 55px;
+}
+.sidebar-collapse , .sidebar-collapse .nav{
+	background:none;
+}
+.sidebar-collapse .nav {
+	padding:0;
+}
+.sidebar-collapse .nav > li > a {
+	color:#fff;
+	background: #FF9900;
+	text-shadow:none;
+	
+}
+.sidebar-collapse > .nav > li > a {
+	padding:15px 10px;
+}
+.sidebar-collapse > .nav > li {
+	border-bottom: 1px solid rgba(107, 108, 109, 0.19);
+}
+.sidebar-collapse .nav > li > a:hover,
+.sidebar-collapse .nav > li > a:focus {
+	
+	background:blue;
+	outline:0;
+}
+
+.nav-second-level > li > a:before ,
+.nav-third-level > li > a:before {
+	content:"";
+	display:block;
+	position:absolute;
+	left:20px;
+	width:15px;
+	height:1px;
+	background:#ff0000;
+	top:20px;
+}
+.nav-second-level > li > a:after,
+.nav-third-level > li > a:after {
+	content:"";
+	display:block;
+	position:absolute;
+	left:20px;
+	width:1px;
+	height:100%;
+	background:#ff0000;
+	top:0px;
+	z-index:10;
+}
+.nav-second-level  > li:last-child > a:after,
+.nav-third-level  > li:last-child > a:after {
+	height:50%;
+}
+.nav-third-level > li > a:after,
+.nav-third-level > li > a:before  {
+	left:40px;
+}
+.navbar-side {
+	border:none;
+	background-color: #F3F3F3;
+	
+}
+.navbar-cls-top {
+	background: #ff9900;
+	border-bottom:none;
+	
+}
+
+
+.navbar-default {
+border:0px solid black;
+     
+}
+.navbar-header {
+    background: #0308FF;
+}
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+background-color: #03EEFF;
+}
+.navbar-default .navbar-toggle {
+border-color: #fff;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+background-color: #FFF;
+}
+.nav > li > a > i {
+    margin-right:10px;
+}
+/*==============================================
+    UI ELEMENTS STYLES     
+    =============================================*/
+.btn-circle {
+width: 50px;
+height: 50px;
+padding: 6px 0;
+ -webkit-border-radius: 25px;
+-moz-border-radius: 25px;
+border-radius: 25px;
+text-align: center;
+font-size: 12px;
+line-height: 1.428571429;
+}
+
+/*==============================================
+    MEDIA QUERIES     
+    =============================================*/
+ 
+ @media(min-width:768px) {
+     #page-wrapper{
+        margin: 0 0 0 260px;
+        padding: 15px 30px;
+		
+		
+    }
+	
+	
+    .navbar-side {
+        z-index: 1;
+        position: absolute;
+        width: 260px;
+    }
+
+   .navbar {
+ border-radius: 0px; 
+}
+   
+}
+
+/*==============================================
+    CHECK IN   
+    =============================================*/
+
+input.checkbox{
+position: absolute;
+right: 65px;
+margin-top: -23px;
+height: 25px;
+width: 30px;
+}
+
+.nome-produto-checkin{
+font-size: 20px;
+font-weight: bold;			
+}
+
+.produto-escolhido{
+text-decoration: line-through;
+font-size: 20px;
+font-weight: bold;
+}
+
+.alert-lista-nao-criada{
+font-size: 17px;
+margin-left: 15px;
+color: orange;
+font-weight: bold;
+}
+
+.preco-checkin {
+position: absolute;
+right: 115px;
+margin-top: -15px;
+color: red;
+}
+
+
+.modal-preco{
+position: relative;
+background-color: #fff;
+background-clip: padding-box;
+border: 1px solid #999;
+border: 1px solid rgba(0, 0, 0, .2);
+border-radius: 6px;
+outline: none;
+-webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+width: 60%;
+margin-left: 20%;
+}	
+ .informacao-modal{
+font-size: 15px;
+color: blue;
+font-weight: bold;
+margin-top: -39px;
+margin-left: 90px;
+}
+
+
