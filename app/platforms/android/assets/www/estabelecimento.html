@@ -24,6 +24,7 @@
 			window.onload = function(){
 				verificarLogin("estabelecimento");
 				listarEstabelecimento();
+				getLocation();
 			}
 		</script> 	
 	</head>
@@ -182,13 +183,30 @@
 			  mes = "0"+mes;
 			var ano = data.getFullYear();  
 			$("#dataAtual").html("Data: "+dia+"/"+mes+"/"+ano); 
-	   </script>   
+	   </script>  
+
+		<script>
+			function getLocation() {
+				window.localStorage.lat = -5.812148;
+				window.localStorage.lon = -35.203833;
+				if (navigator.geolocation) {
+					navigator.geolocation.getCurrentPosition(showPosition);
+				} else { 
+					x.innerHTML = "Geolocation is not supported by this browser.";
+				}
+			}
+
+			function showPosition(position) {
+				window.localStorage.lat = position.coords.latitude;
+				window.localStorage.lon = position.coords.longitude;
+			}
+		</script>
 	   
-	<script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
-    <script type="text/javascript">
-    app.initialize();
-    </script>
+		<script type="text/javascript" src="cordova.js"></script>
+		<script type="text/javascript" src="js/index.js"></script>
+		<script type="text/javascript">
+		app.initialize();
+		</script>
 	
 	</body>
 </html>

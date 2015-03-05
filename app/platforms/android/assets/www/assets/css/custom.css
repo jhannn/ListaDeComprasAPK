@@ -364,6 +364,43 @@ color: #fff;
 }
 
 
+/*---------itens retornar-------*/
+a.lista-pesquisa {
+font-size: 20px;
+color: #ffb503;
+position: absolute;
+float: right;
+margin: 2px;
+}
+
+p.estab-nome-item{
+color: #428bca;
+text-decoration: none;
+font-size: 20px;
+font-weight: bold;
+margin-left: 30px;
+margin-top: -38px;
+}
+
+p.preco-item{
+float: right;
+font-size: 18px;
+color: rgb(255, 94, 0);
+font-weight: bold;
+margin-right: -37px;
+margin-top: -37px;
+}
+
+p.qualificacao{
+float: right;
+font-size: 18px;
+margin-top: -38px;
+margin-right: 8px;
+color: blue;
+font-weight: bold;
+}
+/*========*/
+
  .icon-box-right {
 display: block;
 float: right;
