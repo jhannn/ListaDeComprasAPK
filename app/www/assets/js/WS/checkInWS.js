@@ -122,27 +122,30 @@ var longitudeGeolocation = window.localStorage.lon;												//pegando longitu
 			var estabelecimentos = $.parseJSON(data.d);											//salvando o retorno do servidor em estabelecimentos
 				
 				//---- calculo da menor distancia ---//
-				var menorDistancia = 0;
+				var menorDistancia = "";
 				var estabelecimentoMenorDistancia;
 				var indice = 0;
 				for(var pos=0; pos<estabelecimentos.length; pos++){
 					var distancia = distLatLong(latitudeGeolocation,longitudeGeolocation,estabelecimentos[pos].latitude,estabelecimentos[pos].longitude);
-					if(menorDistancia == 0){
+					if(menorDistancia == "" && distancia<1.0){
 						menorDistancia = distancia;
 						estabelecimentoMenorDistancia = estabelecimentos[pos];
-					}else if(distancia<menorDistancia){
+						indice = pos;
+					}else if(distancia<menorDistancia && distancia<1.0){
 						menorDistancia = distancia;
 						estabelecimentoMenorDistancia = estabelecimentos[pos];
 						indice = pos;
 					}
 				}
 				
-				//----- estabelecimento mais barato no inicio da lista ----//
-				var guardarPrimeiroElemento = estabelecimentos[0];
-				estabelecimentos[0] = estabelecimentoMenorDistancia;
-				estabelecimentos[indice] = guardarPrimeiroElemento;
-						
-				alert("O estabelecimeto mais próximo é o "+estabelecimentoMenorDistancia.nome +"\n"+ estabelecimentoMenorDistancia.bairro);
+				if(menorDistancia != ""){
+					//----- estabelecimento mais barato no inicio da lista ----//
+					var guardarPrimeiroElemento = estabelecimentos[0];
+					estabelecimentos[0] = estabelecimentoMenorDistancia;
+					estabelecimentos[indice] = guardarPrimeiroElemento;
+							
+					alert("O estabelecimeto mais próximo é o "+estabelecimentoMenorDistancia.nome +"\n"+ estabelecimentoMenorDistancia.bairro);					
+				}
 			
 				if(idListaClicada != ""){														//se estiver em uma lista
 					for(var i=0; i<estabelecimentos.length ;i++)								//for para listar estabelecimentos
