@@ -111,7 +111,6 @@ C:\Users\Nudes\Desktop\ListaDeComprasAPK\app\platforms\android\assets\www\princi
 C:\Users\Nudes\Desktop\ListaDeComprasAPK\app\platforms\android\assets\www\procurarProdutosLista.html \
 C:\Users\Nudes\Desktop\ListaDeComprasAPK\app\platforms\android\assets\www\produtos.html \
 C:\Users\Nudes\Desktop\ListaDeComprasAPK\app\platforms\android\assets\www\visualizar-estabelecimento.html \
-C:\Users\Nudes\Desktop\ListaDeComprasAPK\app\platforms\android\assets\www\visualizar-itens.html \
 C:\Users\Nudes\Desktop\ListaDeComprasAPK\app\platforms\android\assets\www\visualizar-lista.html \
 C:\Users\Nudes\Desktop\ListaDeComprasAPK\app\platforms\android\assets\www\assets\css \
 C:\Users\Nudes\Desktop\ListaDeComprasAPK\app\platforms\android\assets\www\assets\font-awesome \
@@ -163,7 +162,6 @@ C:\Users\Nudes\Desktop\ListaDeComprasAPK\app\platforms\android\assets\www\assets
 C:\Users\Nudes\Desktop\ListaDeComprasAPK\app\platforms\android\assets\www\assets\img\edit.png \
 C:\Users\Nudes\Desktop\ListaDeComprasAPK\app\platforms\android\assets\www\assets\img\estabelecimento.png \
 C:\Users\Nudes\Desktop\ListaDeComprasAPK\app\platforms\android\assets\www\assets\img\estabelecimentoBranco.png \
-C:\Users\Nudes\Desktop\ListaDeComprasAPK\app\platforms\android\assets\www\assets\img\estrela.png \
 C:\Users\Nudes\Desktop\ListaDeComprasAPK\app\platforms\android\assets\www\assets\img\find_user.png \
 C:\Users\Nudes\Desktop\ListaDeComprasAPK\app\platforms\android\assets\www\assets\img\fundo.png \
 C:\Users\Nudes\Desktop\ListaDeComprasAPK\app\platforms\android\assets\www\assets\img\icone-mapa.png \

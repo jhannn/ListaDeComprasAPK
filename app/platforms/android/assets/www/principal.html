@@ -23,6 +23,7 @@
 		<script type="text/javascript">
 			window.onload = function(){
 				verificarLogin("principal");
+				getLocation();
 			}
 		</script> 
 		
@@ -121,7 +122,27 @@
 									<p class="text-muted">Dados pessoais</p>
 							</div>
 						</div>
+						
+						
 						<button type="button" class="btn btn-primary" style="width: 100%;border: none; background: #ff9900;" onclick="logout()">SAIR</button>
+						
+						<script>
+						function getLocation() {
+							window.localStorage.lat = -5.812148;
+							window.localStorage.lon = -35.203833;
+							if (navigator.geolocation) {
+								navigator.geolocation.getCurrentPosition(showPosition);
+							} else { 
+								x.innerHTML = "Geolocation is not supported by this browser.";
+							}
+						}
+
+						function showPosition(position) {
+							window.localStorage.lat = position.coords.latitude;
+							window.localStorage.lon = position.coords.longitude;
+						}
+						</script>
+
 					</div>
 				</div>
 			</div>           

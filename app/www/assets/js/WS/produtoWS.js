@@ -192,48 +192,6 @@ function adicionarProdutoNaLista(){
     });	
 }
 
-//____________________________ RETORNAR ITENS ___________________________//
-function retornarItens(){
-	var idProduto = window.localStorage.itemVisializar;
-	
-	$.ajax({
-            type: 'POST'
-            , url: "http://192.168.56.1/Servidor/Item.asmx/retornarItem"
-			, crossDomain:true
-            , contentType: 'application/json; charset=utf-8'
-            , dataType: 'json'
-            , data: "{idUsuario:'"+ID_USUARIO+"',token:'"+TOKEN+"',idProduto:'"+idProduto+"'}"
-            , success: function (data, status){
-				var itens = $.parseJSON(data.d);
-				
-				//------------ ordenar -----------------//
-				var i, j, preco,qualificacao,guardar;
-				for (i = 1; i < itens.length; i++) {
-				   qualificacao = itens[i].qualificacao;
-				   guardar = itens[i];
-				   preco = itens[i].preco;
-				   j = i;
-				   while((j>0) && 
-				   (preco<itens[j-1].preco  || (qualificacao>itens[j-1].qualificacao && preco==itens[j-1].preco)))
-				   {
-						itens[j] = itens[j-1];
-						j = j-1;
-				   }
-				   itens[j] = guardar;
-				}	
-				
-				document.getElementById("iten_nome").innerHTML = itens[0].nomeProduto;
-				for(var t=0; t<itens.length; t++)	
-				listaItens(itens[t]);					
-            }
-            , error: function (xmlHttpRequest, status, err) {
-                alert('Ocorreu um erro no servidor');
-            }
-        });
-	
-}
-
-
 ////________________________Editar Produto_____________________////
 function editarProduto(){
 	var nomeDoProduto = $("#nomeDoProdutoEditado").val();
@@ -299,11 +257,12 @@ function listaEstilo(produto)
 		var h4 = document.createElement("h4");
 		var a = document.createElement("a");
 		var img = document.createElement("img");
-		var nomeProduto = document.createElement("a");
+		var nomeProduto = document.createElement("p");
 		
 		//--estilos--
 		divPrincipal.setAttribute("class","panel panel-default");
 		divProduto.setAttribute("class","panel-heading");
+		
 		divRole.setAttribute("style", "display: block;");
 		divRole.setAttribute("style", "width: 93% !important;");
 		divRole.setAttribute("onclick", "adicionarIdProdutoLocalStorage('"+produto.id_produto+"')");
@@ -317,15 +276,15 @@ function listaEstilo(produto)
 		iconEdit.setAttribute("data-toggle", "modal");
 		
 		h4.setAttribute("class","panel-title");
+		
 		a.setAttribute("style","color: #ffb503;");
 		
 		img.setAttribute("src","assets/img/setaFechada.png");
 		img.setAttribute("width","30px");
 		img.setAttribute("style","color: #ffb503;");
 		
-		nomeProduto.setAttribute("class","lista-pesquisa");		
-		nomeProduto.setAttribute("href","visualizar-itens.html");		
-		nomeProduto.setAttribute("onclick","itemVisializar('"+produto.id_produto+"');");		
+		nomeProduto.setAttribute("class","ajustes-lista");		
+		nomeProduto.setAttribute("style","margin: -38px;margin-left: 25px;");		
 		nomeProduto.innerHTML = produto.nome;
 		
 		//--------//
@@ -343,71 +302,6 @@ function listaEstilo(produto)
 		
 		var pai = document.getElementById("referencia");
 		pai.appendChild(divPrincipal);	
-}
-
-//______ listar itens ________//
-function listaItens(produto)
-{
-	var divPrincipal = document.createElement("div");
-		var divProduto = document.createElement("div");
-		var divRole = document.createElement("div");
-		var iconEdit = document.createElement('div');
-		var h4 = document.createElement("h4");
-		var a = document.createElement("a");
-		var img = document.createElement("img");
-		var estrela = document.createElement("img");
-		var nomeEstabelecimento = document.createElement("p");
-		var preco = document.createElement("p");
-		var qualificacao = document.createElement("p");
-		
-		//--estilos--
-		divPrincipal.setAttribute("class","panel panel-default");
-		divProduto.setAttribute("class","panel-heading");
-		divProduto.setAttribute("id",produto.id_item);
-		divRole.setAttribute("style", "display: block;");
-		divRole.setAttribute("style", "width: 93% !important;");
-		
-		h4.setAttribute("class","panel-title");
-		a.setAttribute("style","color: #ffb503;");
-		
-		img.setAttribute("src","assets/img/setaFechada.png");
-		img.setAttribute("width","30px");
-		img.setAttribute("style","color: #ffb503;");
-		
-		nomeEstabelecimento.innerHTML = produto.nomeEstabelecimento;
-		nomeEstabelecimento.setAttribute("class","estab-nome-item");
-		
-		preco.innerHTML = "R$ " +(produto.preco).toFixed(2);
-		preco.setAttribute("class","preco-item");
-		
-		qualificacao.innerHTML = produto.qualificacao;
-		qualificacao.setAttribute("class","qualificacao");
-		
-		estrela.setAttribute("src","assets/img/estrela.png");
-		estrela.setAttribute("style","height: 20px; margin-top: -4px;");
-		
-		//--------//
-		divPrincipal.appendChild(divProduto);
-		divPrincipal.appendChild(divRole);
-		divPrincipal.appendChild(h4);
-		divPrincipal.appendChild(a);
-		divPrincipal.appendChild(img);
-		divProduto.appendChild(divRole);
-		divProduto.appendChild(iconEdit);
-		divRole.appendChild(h4);
-		h4.appendChild(a);
-		h4.appendChild(nomeEstabelecimento);
-		h4.appendChild(preco);
-		h4.appendChild(qualificacao);
-		qualificacao.appendChild(estrela);
-		a.appendChild(img);
-		
-		var pai = document.getElementById("referencia");
-		pai.appendChild(divPrincipal);	
-}
-
-function itemVisializar(idProduto){
-	window.localStorage.itemVisializar = idProduto;
 }
 
 var app = {
