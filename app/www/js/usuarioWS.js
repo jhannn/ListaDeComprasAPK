@@ -1,5 +1,4 @@
 var TOKEN = "124576453875";
-// window.localStorage.produtoRecemAdicionado = "";
 
 //____________________________________ FAZER LOGIN ______________________________________________//
 function fazerLogin(){
@@ -162,7 +161,6 @@ function cadastrarUsuario() {
 					var retorno = $.parseJSON(data.d);
 						console.log(retorno);
 					if(retorno.erro != "Erro de Usuário"){
-						localNotification();
 						alert("Usuario cadastrado com sucesso!");
 						window.localStorage.UsuarioNome=nome;
 						window.localStorage.UsuarioEmail=email;
@@ -259,7 +257,6 @@ function localNotification()
     repeat:  'weekly'
     });
 }
-
 
 var app = {
     // Application Constructor

@@ -1,175 +1,239 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-	<head>
-	
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Compras Digital</title>
-		<!-- BOOTSTRAP STYLES-->
-		<link href="assets/css/bootstrap.css" rel="stylesheet" />
-		<!-- FONTAWESOME STYLES-->
-		<link href="assets/css/font-awesome.css" rel="stylesheet" />
-		<!-- MORRIS CHART STYLES-->
-		<link href="assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
-		<!-- CUSTOM STYLES-->
-		<link href="assets/css/custom.css" rel="stylesheet" />
-		<!-- GOOGLE FONTS-->
-		<link href='assets/css/googleapis.css' rel='stylesheet' type='text/css' />
-		<!--SCRIPTS DO COMUNICACAO WEB SERVICE-->
-		<script src="assets/js/WS/usuarioWS.js"></script>
-		<script src="assets/js/WS/listaWS.js"></script>
-		<script src="assets/js/WS/produtoWS.js"></script>  
-		<script src="assets/js/WS/checkinWS.js"></script>  
-		<!--FUNCOES PRE-REALIZADAS-->
-		<script type="text/javascript">
-			window.onload = function(){
-				verificarLogin("listas");
-				retornarProdutosDaListas();	
-				retornarNomeLista();
-				//autocomplete();
-			}		
-		</script>  
-		
-	</head>
-	<body>
-	
-		<div id="wrapper">
-			<nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse" style="margin-top: 20px;">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<h2 style="padding:0px 0px 10px 10px;color:#fff;"><a href="listas.html"><img src="assets/img/voltar.png" width="40px"></a></h2> 
-				</div>				
-				<div id="dataAtual" style="color: white; padding: 15px; float: right; font-size: 16px;"> </div>
-			</nav>   
-			<!-- /. NAV TOP  -->
-			<nav class="navbar-default navbar-side" role="navigation">
-				<div class="sidebar-collapse">
-					<ul class="nav" id="main-menu">
-						<li>
-							<a href="principal.html"><img src="assets/img/inicio.png" width="40px" style="margin-right: 15px;">Início</a>
-						</li>
-						<li>
-							<a href="estabelecimento.html"><img src="assets/img/estabelecimentoBranco.png" width="40px" style="margin-right: 15px;">Estabelecimentos</a>
-						</li>
-						<li>
-							<a  class="active-menu"  href="listas.html"><img src="assets/img/listaBranco.png" width="40px" style="margin-right: 15px;"> Listas</a>
-						</li>
-						<li>
-							<a  href="produtos.html"><img src="assets/img/produtosBranco.png" width="40px" style="margin-right: 15px;"> Produtos</a>
-						</li>					
-						<li>
-							<a   href="perfil.html"><img src="assets/img/profileBranco.png" width="40px" style="margin-right: 15px;"> Perfil</a>
-						</li>                     
-					</ul>               
-				</div>            
-			</nav>  
-			<!-- /. NAV SIDE  -->
-				<div id="page-wrapper" >
-					<div id="page-inner">
-						<div class="row">
-							<h2 id="tituloLista"></h2>	
-							<h2 id="nomeDaLista" style="color: #000; font-size: 18px; font-weight: bold; padding: 0px 0px 12px 15px;"></h2>							
-							<p id="nomeLista" style="margin-left:15px"></p>						
-							<button type="button" class="btn btn-primary" style="float: right;" data-toggle="modal" data-target="#exibir_estabelecimento" onclick="retornarEstabelecimentosMaisBaratos()">
-								Buscar ofertas
-							</button>
-					
+<head>
+      <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Compras Digital</title>
+	<!-- BOOTSTRAP STYLES-->
+    <link href="css/bootstrap.css" rel="stylesheet" />
+     <!-- FONTAWESOME STYLES-->
+    <link href="css/font-awesome.css" rel="stylesheet" />
+     <!-- MORRIS CHART STYLES-->
+    <link href="js/morris/morris-0.4.3.min.css" rel="stylesheet" />
 
-							<a href="checkinEstabelecimento.html" type="button" class="btn btn-primary" style="float: right;" onclick="controleCheckin('lista')">
-								Checkin
-							</a>
+        <!-- CUSTOM STYLES-->
+    <link href="css/custom.css" rel="stylesheet" />
+     <!-- GOOGLE FONTS-->
+   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+   
+    <script src="js/usuarioWS.js"></script>
+	<script src="js/listaWS.js"></script>
+	<script src="js/produtoWS.js"></script>  
+	<script src="js/estabelecimentoWS.js"></script>  
+   
+   	<script type="text/javascript">
+		window.onload = function(){
+			verificarLogin("listas");
+			retornarProdutosDaListas();	
+			retornarNomeLista();
+			//autocomplete();
+		}
+		
+	</script>   
+   
+</head>
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse" style="margin-top: 20px;">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <h2 style="padding:0px 0px 10px 10px;color:#fff;"><a href="listas.html"><img src="img/voltar.png" width="40px"></a></h2> 
+            </div>
+				
+			<div id="dataAtual" style="color: white; padding: 15px; float: right; font-size: 16px;"> </div>
+        </nav>   
+           <!-- /. NAV TOP  -->
+                <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+					<li>
+                        <a href="principal.html"><img src="img/inicio.png" width="40px" style="margin-right: 15px;">Início</a>
+                    </li>
+                    <li>
+                        <a href="estabelecimento.html"><img src="img/estabelecimentoBranco.png" width="40px" style="margin-right: 15px;">Estabelecimentos</a>
+                    </li>
+                     <li>
+                        <a  class="active-menu"  href="listas.html"><img src="img/listaBranco.png" width="40px" style="margin-right: 15px;"> Listas</a>
+                    </li>
+                    <li>
+                        <a  href="produtos.html"><img src="img/produtosBranco.png" width="40px" style="margin-right: 15px;"> Produtos</a>
+                    </li>
+					
+					<li>
+                        <a   href="perfil.html"><img src="img/profileBranco.png" width="40px" style="margin-right: 15px;"> Perfil</a>
+                    </li>	
+                     
+                </ul>
+               
+            </div>
+            
+        </nav>  
+        <!-- /. NAV SIDE  -->
+			<div id="page-wrapper" >
+				<div id="page-inner">
+					<div class="row">
+						<h2 id="tituloLista"></h2>	
+						<h2 id="nomeDaLista" style="color: #000; font-size: 18px; font-weight: bold; padding: 0px 0px 12px 15px;"></h2>
 						
-							<button type="button" class="btn btn-primary" style="float: right;" onclick="mostrarPesquisa();">
-								Q
-							</button>						
-							<button id="botaoLoucao" type="button" class="btn btn-primary" style="float: right; display: none;" onclick="procurarProduto();">
-								Procurar Produto
-							</button>
-							<input type="text" class="form-control" placeholder="Ex: Arroz" id="nomeDoProduto" name="nomeDoProduto" onkeyup="autoComplete()" style="display: none;position: relative;top: 5px;" />						
-						</div> 					 	
-					</div>
-				</div>           
-		</div>
-		<!-- /. WRAPPER  -->
-		<!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
-		<!-- JQUERY SCRIPTS -->
-		<script src="assets/js/jquery-1.10.2.js"></script>
-		<!-- BOOTSTRAP SCRIPTS -->
-		<script src="assets/js/bootstrap.min.js"></script>
-		<!-- METISMENU SCRIPTS -->
-		<script src="assets/js/jquery.metisMenu.js"></script>
-		<!-- MORRIS CHART SCRIPTS -->
-		<script src="assets/js/morris/raphael-2.1.0.min.js"></script>
-		<script src="assets/js/morris/morris.js"></script>
-		<!-- CUSTOM SCRIPTS -->
-		<script src="assets/js/custom.js"></script>	
-		<script src="assets/js/WS/usuarioWS.js"></script>
-		<script src="assets/js/WS/listaWS.js"></script>
-		<script src="assets/js/WS/produtoWS.js"></script>   
-		<script type="text/javascript">
-			window.onload = function(){
-				verificarLogin("listas");
-				retornarProdutosDaListas();
-				retornarNomeLista();			
-			}
-			
-		</script>    
-		<script>
-			var data = new Date();
-			var dia = data.getDate();
-			if (dia.toString().length == 1)
-			  dia = "0"+dia;
-			var mes = data.getMonth()+1;
-			if (mes.toString().length == 1)
-			  mes = "0"+mes;
-			var ano = data.getFullYear();  
-			$("#dataAtual").html("Data: "+dia+"/"+mes+"/"+ano); 
-		</script>   
-		<!-- Modal listar estabelecimento mais barato -->
-		<div class="modal fade" id="exibir_estabelecimento" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-						<h4 class="modal-title" id="myModalLabel">Estabelecimentos</h4>
-					</div>
-					<div class="modal-body">		  
-						<h2 class="estabelecimento-produtos-baratos">Estabelecimento</h1>
-						<h2 class="oferta">Oferta</h2>
-						<h2 class="preco">Preço</h2>		  
-						<p id="referenciaEstab"></p>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-					</div>
+						
+						<p id="nomeLista" style="margin-left:15px"></p>
+						
+						<button type="button" class="btn btn-primary" style="float: right;" data-toggle="modal" data-target="#exibir_estabelecimento" onclick="retornarEstabelecimentosMaisBaratos()">
+							Buscar ofertas
+						</button>
+
+						<button type="button" class="btn btn-primary" style="float: right;" data-toggle="modal" data-target="#cadastrar_prduto_lista" onclick="javascript:adicionarProdutoALista();">
+							Cadastrar produto à lista
+						</button>
+						
+						<!--<input type="text" id="nomeDoProduto" onkeyup="teste()" />-->
+						
+					</div> 					 	
 				</div>
-			</div>
-		</div> 
-		<!-- fim modal -->  
+            </div>           
+    </div>
+             <!-- /. PAGE INNER  -->
+            </div>
+         <!-- /. PAGE WRAPPER  -->
+        </div>
+     <!-- /. WRAPPER  -->
+    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+    <!-- JQUERY SCRIPTS -->
+    <script src="js/jquery-1.10.2.js"></script>
+      <!-- BOOTSTRAP SCRIPTS -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- METISMENU SCRIPTS -->
+    <script src="js/jquery.metisMenu.js"></script>
+     <!-- MORRIS CHART SCRIPTS -->
+     <script src="js/morris/raphael-2.1.0.min.js"></script>
+    <script src="js/morris/morris.js"></script>
+      <!-- CUSTOM SCRIPTS -->
+    <script src="js/custom.js"></script>
+	
+	<script src="js/usuarioWS.js"></script>
+	<script src="js/listaWS.js"></script>
+	<script src="js/produtoWS.js"></script>
+   
+   	<script type="text/javascript">
+		window.onload = function(){
+			verificarLogin("listas");
+			retornarProdutosDaListas();
+			retornarNomeLista();
+			//autocomplete();
+			
+		}
 		
-		<!-- Modal final para inserir uma nova lsita -->
-		    <script type="text/javascript" src="cordova.js"></script>
-		<script type="text/javascript" src="js/index.js"></script> 
-		<script type="text/javascript">
-			app.initialize();
-		</script>
-		<script src="js/usuarioWS.js"></script>
-		<script src="js/listaWS.js"></script>
-		<script src="js/produtoWS.js"></script>
-		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-		<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
-		<script src="assets/js/WS/usuarioWS.js"></script>
-		<script src="assets/js/WS/listaWS.js"></script>
-		<script src="assets/js/WS/produtoWS.js"></script>
-		<script src="assets/js/jquery-1.9.1.js"></script> 
-		<script src="assets/js/jquery-ui-1.10.3.js"></script>
-		<link rel="stylesheet" href="assets/css/jquery-ui.css" />
-		
-	</body>
+	</script>   
+   
+   <script>
+		var data = new Date();
+		var dia = data.getDate();
+		if (dia.toString().length == 1)
+		  dia = "0"+dia;
+		var mes = data.getMonth()+1;
+		if (mes.toString().length == 1)
+		  mes = "0"+mes;
+		var ano = data.getFullYear();  
+		$("#dataAtual").html("Data: "+dia+"/"+mes+"/"+ano); 
+   </script>
+   
+   
+   <!-- Modal listar estabelecimento -->
+     <div class="modal fade" id="exibir_estabelecimento" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+			<h4 class="modal-title" id="myModalLabel">Estabelecimentos</h4>
+		  </div>
+		  <div class="modal-body">
+		  
+		  <h2 class="estabelecimento-produtos-baratos">Estabelecimento</h1>
+		  <h2 class="oferta">Oferta</h2>
+		  <h2 class="preco">Preço</h2>
+		  
+		  <p id="referenciaEstab"><p>
+
+		  </div>
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+		  </div>
+		</div>
+	  </div>
+	</div> <!-- fim modal -->
+	
+   
+   <div class="modal fade" id="cadastrar_prduto_lista" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+			<h4 class="modal-title" id="myModalLabel">Adicionar produto à lista</h4>
+		  </div>
+		  <div class="modal-body">
+			
+			<form class="form-horizontal" role="form">
+				  <div class="form-group" style="margin-bottom: 0px;">
+					<label for="inputEmail3" class="col-sm-2 control-label">Código de barras:</label>
+					<div class="col-sm-10">
+					  <input class="form-control" type="text" placeholder="Código de barras" id="cod_barra" name="cod_barra" value='' readonly />
+					  <p style="margin: 0px; padding: 0px;"><a href="#" id="scan"><img src="img/codigo_barras.png" width="30px" style="float: right; position: relative;bottom: 70px;"></a></p>
+					</div>
+				  </div>
+				  
+				  <!-- <div class="form-group" style="margin-bottom: 20px;">
+					<label for="inputPassword3"  class="col-sm-2 control-label">Formato:</label>
+					<div class="col-sm-10">
+					  <input class="form-control" type="text" placeholder="Formato" id="formato" name="formato" value='' readonly>
+					</div>
+				  </div>
+				  -->
+				  <div class="form-group">
+					<label for="nomeDoProduto" class="col-sm-2 control-label">Nome do produto:</label>
+					<div class="col-sm-10">
+					<input type="text" class="form-control" placeholder="Nome do produto" id="nomeDoProduto" name="nomeDoProduto" onkeyup="autoComplete()" />
+					</div>
+				  </div>
+				  
+				  <div class="form-group">
+					<label for="quantidade" class="col-sm-2 control-label">Quantidade:</label>
+					<div class="col-sm-10">
+					  <input type="text" class="form-control" placeholder="1" id="quantidade" name="quantidade" />
+					</div>
+				  </div>
+				  
+				  
+			</form>
+			
+		  </div>
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+			<button type="button" class="btn btn-primary" onclick="adicionarProdutoALista();">Cadastrar produto</button>
+			<!-- <button type="button" class="btn btn-primary" onclick="excluirLista();">Excluir Lista</button>
+			<button type="button" class="btn btn-primary" onclick="editarNomeLista();">Editar  Nome da lista</button> -->
+		  </div>
+		</div>
+	  </div>
+	</div>
+   
+   
+   
+   <!-- Modal final para inserir uma nova lsita -->
+    <script type="text/javascript" src="cordova.js"></script>
+	<script type="text/javascript" src="js/index.js"></script> 
+	<script type="text/javascript">
+		app.initialize();
+	</script>
+	<script src="js/usuarioWS.js"></script>
+	<script src="js/listaWS.js"></script>
+	<script src="js/produtoWS.js"></script>
+	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+</body>
 </html>

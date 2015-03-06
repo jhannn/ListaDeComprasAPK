@@ -15,7 +15,6 @@
 
 body {
     font-family: 'Open Sans', sans-serif;
-	background-image: url("../img/fundo.png");
 }
 
 #map-canvas{
@@ -37,51 +36,21 @@ body {
 	background-size: 27px;
 	position: relative;
 	cursor:pointer;
-	bottom: 3px;
-}
-
-.icone-remove-produto {
-	background: url("../img/remove.png") no-repeat;
-	width: 28px;
-	height: 30px;
-	float: right;
-	background-size: 27px;
-	position: relative;
-	cursor:pointer;
-	bottom: 5px;
 }
 
 .icone-mapa{
-	width: 42px;
-	height: 32px;
-	float: right;
-	margin-top: -6px;
-	margin-right: 10px;
-}
-
-.icone-quant{
-margin: -18px 0px 0px 100px;
-color:rgb(19, 22, 244);
+width: 40px;
+height: 40px;
+float: right;
+margin-top: -85px;
 }
 
 .iconEdit {
-	cursor: pointer;
+	cursor:pointer;
 	background: url("../img/edit.png") no-repeat;
 	width: 28px;
 	height: 30px;
-	bottom: 2px;
-	float: right;
-	background-size: 27px;
-	position: relative;
-}
-
-.icone-editar-produto{
-	cursor: pointer;
-	background: url("../img/edit.png") no-repeat;
-	width: 28px;
-	height: 30px;
-	right: 10px;
-	bottom: 5px;
+	right:10px;
 	float: right;
 	background-size: 27px;
 	position: relative;
@@ -103,15 +72,15 @@ color:rgb(19, 22, 244);
 
 #page-wrapper {
     padding: 15px 15px;
-    background:rgb(0, 180, 255);
+    background:#F3F3F3;
    
 }
 #page-inner {
     width:100%;
     margin:10px 20px 10px 0px;
-    background-image: url("../img/fundo.png");   
+    background-color:#fff!important;
     padding:10px;
-	height: 100%;
+    /*min-height:400px;*/
 }
 
 .text-center {
@@ -134,9 +103,9 @@ border-radius: 0px;
 
 }
 p {
-font-size: 14px;
-line-height: 15px;
-padding-top: 15px;
+    font-size:14px;
+    line-height:25px;
+    padding-top:20px;
 }
 
 #tituloLista
@@ -196,36 +165,16 @@ text-decoration: none;
 .panel-default > .panel-heading {
 background-color: #E7E6E6;
 box-shadow: 0px 1px 4px rgb(127, 125, 125);
-border-radius: 10px;
 }	
-
-p.conteudo-estab {
-margin-left: 17px;
-font-size: 17px;
-color: orange;
-margin-top: -5px;
-}
-
-.titulos{
-color: #428bca;
-text-decoration: none;
-font-size:25px;
-}
-a.titulos{
-color: #428bca;
-text-decoration: none;
-font-size:25px;	
-font-weight: bold;
-}
 
 .panel.panel-default {
 margin-left: 15px;
 margin-top: 30px;
-border-radius: 10px;
 }
 
 h2.estabelecimento-produtos-baratos {
 font-size: 20px;
+padding-left: 15px;
 color:orange;
 }
 
@@ -237,7 +186,7 @@ h2.preco {
 color: orange;
 font-size: 20px;
 float: right;
-margin-right: -123px;
+margin-right: -165px;
 margin-top: -28px;
 }
 
@@ -246,7 +195,7 @@ color: orange;
 font-size: 20px;
 float: right;
 margin-top: -29px;
-margin-right: 75px;
+margin-right: 120px;
 }
 
 .ajustes-oferta
@@ -256,7 +205,7 @@ color: blue;
 font-weight: bold;
 float: right;
 margin-top: -16px;
-margin-right: 75px;
+margin-right: 120px;
 }
 
 .ajustes-valor
@@ -265,18 +214,18 @@ font-size: 18px;
 color: rgb(255, 94, 0);
 font-weight: bold;
 float: right;
-margin-right: -112px;
+margin-right: -142px;
 margin-top: -16px;
 }
 	
 .ajustes-lista
 {
-font-size: 20px;
-color: #ffb503;
-position: absolute;
-float: right;
-margin: -32px;
-margin-left: 15px;
+	font-size: 20px;
+	color: #ffb503;
+	position: absolute;
+	float: right;
+	margin: -48px;
+	margin-left: 32px;
 }
 
 .modal-fechado
@@ -289,7 +238,7 @@ box-shadow: 0px 1px 5px rgb(138, 136, 136);
 
 .modal-aberto {
 overflow: hidden;
-height: 110px;
+height: 150px;
 transition: height 2s;
 box-shadow: 0px 1px 5px rgb(138, 136, 136);
 }
@@ -315,11 +264,10 @@ img.pesquisar-imagem
     background-color:#F8F8F8;
 
 }
-
-.noti-box {
-padding: 10px;
-text-align: center;
-height: 195px;
+   .noti-box {
+min-height: 225px;
+padding: 20px;
+text-align:center;
 }
 
     .noti-box .icon-box {
@@ -466,7 +414,7 @@ max-width:170px;
 	font-weight: 700;
 }
 .active-menu {
-    background-color:blue!important;
+    background-color:#ffb503!important;
 }
 
 .arrow {
@@ -502,7 +450,7 @@ max-width:170px;
 }
 .sidebar-collapse .nav > li > a {
 	color:#fff;
-	background: #FF9900;
+	background:#a3a3a3;
 	text-shadow:none;
 	
 }
@@ -515,7 +463,7 @@ max-width:170px;
 .sidebar-collapse .nav > li > a:hover,
 .sidebar-collapse .nav > li > a:focus {
 	
-	background:blue;
+	background:#ffb503;
 	outline:0;
 }
 
@@ -556,7 +504,7 @@ max-width:170px;
 	
 }
 .navbar-cls-top {
-	background: #ff9900;
+	background:#bbb;
 	border-bottom:none;
 	
 }
@@ -567,10 +515,10 @@ border:0px solid black;
      
 }
 .navbar-header {
-    background: #0308FF;
+    background: #FFb503;
 }
 .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
-background-color: #03EEFF;
+background-color: #ffb503;
 }
 .navbar-default .navbar-toggle {
 border-color: #fff;
@@ -622,63 +570,9 @@ line-height: 1.428571429;
    
 }
 
-/*==============================================
-    CHECK IN   
-    =============================================*/
-
-input.checkbox{
-position: absolute;
-right: 65px;
-margin-top: -23px;
-height: 25px;
-width: 30px;
-}
-
-.nome-produto-checkin{
-font-size: 20px;
-font-weight: bold;			
-}
-
-.produto-escolhido{
-text-decoration: line-through;
-font-size: 20px;
-font-weight: bold;
-}
-
-.alert-lista-nao-criada{
-font-size: 17px;
-margin-left: 15px;
-color: orange;
-font-weight: bold;
-}
-
-.preco-checkin {
-position: absolute;
-right: 115px;
-margin-top: -15px;
-color: red;
-}
 
 
-.modal-preco{
-position: relative;
-background-color: #fff;
-background-clip: padding-box;
-border: 1px solid #999;
-border: 1px solid rgba(0, 0, 0, .2);
-border-radius: 6px;
-outline: none;
--webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
-box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
-width: 60%;
-margin-left: 20%;
-}	
- .informacao-modal{
-font-size: 15px;
-color: blue;
-font-weight: bold;
-margin-top: -39px;
-margin-left: 90px;
-}
+	
+	
 
 
